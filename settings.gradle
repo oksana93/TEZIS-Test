@@ -1,0 +1,8 @@
+rootProject.name = 'TEZIS-Test'
+include(':tezistest-global', ':tezistest-core', ':tezistest-gui', ':tezistest-web', ':tezistest-portal', ':tezistest-mobile')
+project(':tezistest-global').projectDir = new File(settingsDir, 'modules/global')
+project(':tezistest-core').projectDir = new File(settingsDir, 'modules/core')
+project(':tezistest-gui').projectDir = new File(settingsDir, 'modules/gui')
+project(':tezistest-web').projectDir = new File(settingsDir, 'modules/web')
+project(':tezistest-portal').projectDir = new File(settingsDir, 'modules/portal')
+project(':tezistest-mobile').projectDir = new File(settingsDir, 'modules/mobile')

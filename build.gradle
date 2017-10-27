@@ -1,0 +1,247 @@
+
+allprojects {
+    ext.artifactGroup = 'com.company.tezistest'
+    ext.artifactVersion = '0.1'
+    ext.isSnapshot = true
+    ext.tomcatDir = "$rootDir/deploy/tomcat"
+    ext.copyright = '''Copyright (c) ${YEAR} ${PACKAGE_NAME}''' // Copyright Notice for IDEA project
+    ext.classComment = '''/**
+ * @author ${USER}
+ */'''
+    
+}
+
+buildscript {
+    ext.thesisVersion = '4.1.6'
+    ext.cubaVersion = '5.8.1'
+    ext.autoConfigurePortal = true
+    ext.autoConfigureMobile = true
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://deprecated-repo.haulmont.com:8587/nexus/content/groups/work/'
+            credentials {
+                username(rootProject.hasProperty('repoUser') ?
+                        rootProject['repoUser'] : 'external')
+                password(rootProject.hasProperty('repoPass') ?
+                        rootProject['repoPass'] : 'aiva33n8')
+            }
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
+        classpath "com.haulmont.thesis.gradle:thesis-plugin:$thesisVersion"
+        classpath 'org.hidetake:gradle-ssh-plugin:2.9.0'
+    }
+
+}
+
+
+def globalModule = project(':tezistest-global')
+def coreModule = project(':tezistest-core')
+def guiModule = project(':tezistest-gui')
+def webModule = project(':tezistest-web')
+def portalModule = project(':tezistest-portal')
+def mobileModule = project(':tezistest-mobile')
+
+def postgres = 'postgresql:postgresql:9.1-901.jdbc4'
+def servletApi = 'org.apache.tomcat:servlet-api:6.0.20'
+
+def thesisWebToolkitGAV = [group: 'com.haulmont.thesis.toolkit', name: 'thesis-web-toolkit', version: thesisVersion]
+
+
+
+
+apply(plugin: 'idea')
+apply(plugin: 'cuba')
+apply(plugin: 'thesis')
+apply(plugin: 'org.hidetake.ssh')
+
+remotes {
+    webServer {
+        host = '172.29.134.55'
+        user = System.properties['user.name']
+        identity = file("${System.properties['user.home']}/.ssh/id_rsa")
+    }
+}
+
+configure([globalModule, coreModule, guiModule, webModule, portalModule, mobileModule]) {
+    apply(plugin: 'java')
+    apply(plugin: 'maven')
+    apply(plugin: 'idea')
+    apply(plugin: 'cuba')
+
+    dependencies {
+        testCompile('junit:junit:4.5')
+    }
+
+    task sourceJar(type: Jar) {
+        from file('src')
+        classifier = 'sources'
+    }
+
+    artifacts {
+        archives sourceJar
+    }
+}
+
+configure(globalModule) {
+    dependencies {
+                compile("com.haulmont.thesis.app:thesis-global:$thesisVersion")
+
+    }
+
+    task enhance(type: CubaEnhancing) {
+        persistenceXml = "$globalModule.projectDir/src/persistence.xml"
+    }
+}
+
+configure(coreModule) {
+
+    configurations {
+        jdbc
+        dbscripts
+        webcontent
+    }
+
+    dependencies {
+        compile(globalModule)
+        provided(servletApi)
+        jdbc(postgres)
+        testRuntime(postgres)
+        webcontent("com.haulmont.thesis.app:thesis-core:$thesisVersion:web@zip")
+                compile("com.haulmont.thesis.app:thesis-core:$thesisVersion")
+        dbscripts("com.haulmont.thesis.app:thesis-core:$thesisVersion:db@zip")
+
+    }
+
+    task deploy(dependsOn: assemble, type: CubaDeployment) {
+        appName = 'app-core'
+        appJars('thesis-core', 'thesis-global', 'reports-global', 'reports-core', 'charts-global', 'workflow-core', 'workflow-global', 'fts-core', 'fts-global', 'cuba-core', 'cuba-global', 
+                'thesis-cryptopro-global','tezistest-global', 'tezistest-core')
+    }
+
+    task createDb(dependsOn: assemble, description: 'Creates local database', type: CubaDbCreation) {
+        dbms = 'postgres'
+        host = 'localhost'
+        dbName = 'tezistest'
+        dbUser = 'root'
+        dbPassword = 'root'
+    }
+
+    task updateDb(dependsOn: assemble, description: 'Updates local database', type: CubaDbUpdate) {
+        dbms = 'postgres'
+        host = 'localhost'
+        dbName = 'tezistest'
+        dbUser = 'root'
+        dbPassword = 'root'
+    }
+}
+
+configure(guiModule) {
+    dependencies {
+        compile(globalModule)
+                compile("com.haulmont.thesis.app:thesis-gui:$thesisVersion")
+
+    }
+
+    task deployConf(type: Copy) {
+        from file('src')
+        include "com/company/tezistest/**"
+        into "$tomcatDir/conf/app"
+    }
+}
+
+configure(webModule) {
+    configurations {
+        webcontent
+        
+        staticContent
+        themes
+    }
+
+    dependencies {
+        provided(servletApi)
+        compile(globalModule)
+        compile(guiModule)
+        compile("com.haulmont.thesis.app:thesis-web:$thesisVersion")
+        webcontent("com.haulmont.cuba:cuba-web:$cubaVersion:web@zip")
+        webcontent("com.haulmont.workflow:workflow-web:$cubaVersion:web@zip")
+        webcontent("com.haulmont.thesis.app:thesis-web:$thesisVersion:web@zip")
+        webcontent("com.haulmont.charts:charts-web:$cubaVersion:web@zip")
+        webcontent(thesisWebToolkitGAV + [classifier: 'web', ext: 'zip'])
+        webcontent("com.haulmont.thesis.cryptopro:thesis-cryptopro-web:$thesisVersion:web@zip")
+        themes(group: 'com.haulmont.cuba', name: 'cuba-web-themes', version: cubaVersion)
+    }
+
+    task webArchive(type: Zip) {
+        from file('web')
+        classifier = 'web'
+    }
+
+    artifacts {
+        archives webArchive
+    }
+
+    task deployConf(type: Copy) {
+        from file('src')
+        include "com/company/tezistest/**"
+        into "$tomcatDir/conf/app"
+    }
+
+    task cleanConf(description: 'Cleans up conf directory') << {
+        def dir = new File(tomcatDir, '/conf/app')
+        if (dir.isDirectory()) {
+            ant.delete(includeemptydirs: true) {
+                fileset(dir: dir, includes: '**/*', excludes: 'local.web-app.properties')
+            }
+        }
+    }
+    def staticContentDir = "$tomcatDir/webapps/app/static"
+    task deployThesisDocZip {
+        def thesisDocZip = zipTree(configurations.staticContent.resolvedConfiguration.getResolvedArtifacts().find { it.name.startsWith('thesis-doc') }.file)
+        inputs.file thesisDocZip
+        outputs.dir new File(staticContentDir)
+        doLast {
+
+            copy {
+                from thesisDocZip
+                include 'quickstart/ru/html-single/**/*'
+                include 'quickstart/ru/pdf/**/*'
+                eachFile { details ->
+                    details.path = details.path.replaceAll('quickstart/ru/html-single/', '')
+                    details.path = details.path.replaceAll('quickstart/ru/pdf/', '')
+                }
+                into staticContentDir + "/manual_html"
+                includeEmptyDirs = false
+            }
+        }
+    }
+
+    task deploy(dependsOn: [assemble, cleanConf, deployThesisDocZip], type: ThesisWebAppDeployment) {
+        appName = 'app'
+        appJars('thesis-gui', 'thesis-web', 'thesis-global', 'reports-gui', 'reports-web', 'reports-global', 'charts-gui', 'charts-web', 'charts-global', 'workflow-gui', 'workflow-web', 'workflow-global', 'fts-web', 'fts-global', 'fts-gui', 'cuba-global', 'cuba-client', 'cuba-gui', 'cuba-web', 
+        'thesis-bpmn-diagram','thesis-cryptopro-global', 'thesis-cryptopro-web','tezistest-global', 'tezistest-gui', 'tezistest-web')
+    }
+}
+
+task undeploy(type: Delete, dependsOn: ':tezistest-web:cleanConf') {
+    delete("$tomcatDir/shared")
+    delete("$tomcatDir/webapps/app-core")
+    delete("$tomcatDir/webapps/app")
+        delete("$tomcatDir/webapps/app-portal")
+}
+
+task restart(dependsOn: ['stop', ':tezistest-core:deploy', ':tezistest-web:deploy', ':tezistest-portal:deploy', ':tezistest-mobile:deploy'], description: 'Redeploys applications and restarts local Tomcat') << {
+    ant.waitfor(maxwait: 6, maxwaitunit: 'second', checkevery: 2, checkeveryunit: 'second') {
+        not {
+            socket(server: 'localhost', port: '8787')
+        }
+    }
+    start.execute()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
+}

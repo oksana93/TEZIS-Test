@@ -1,0 +1,4 @@
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application" insertBefore="administration">
+    </menu>
+</menu-config>
