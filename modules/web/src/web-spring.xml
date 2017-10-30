@@ -23,5 +23,13 @@
     <!--<task:scheduled-tasks scheduler="backgroundWorkerScheduler">-->
         <!--<task:scheduled ref="cuba_BackgroundWorker_WatchDog" method="cleanupTasks" fixed-delay="2000"/>-->
     <!--</task:scheduled-tasks>-->
+    <bean id="tezistest_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="clusterInvocationSupport" ref="cuba_clusterInvocationSupport"/>
+        <property name="remoteServices">
+            <map>
+                <entry key="tezistest_CreateLetterServiceBean" value="com.company.tezistest.service.CreateLetterService"/>
+            </map>
+        </property>
+    </bean>
 
 </beans>

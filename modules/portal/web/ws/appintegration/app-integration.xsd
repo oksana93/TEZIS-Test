@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.haulmont.com/schema/thesis/appintegration"
+           targetNamespace="http://www.haulmont.com/schema/thesis/appintegration">
+
+    <!--Login-->
+
+    <xs:element name="LoginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="login"/>
+                <xs:element type="xs:string" name="password"/>
+                <xs:element type="xs:string" name="locale"/>
+                <xs:element type="xs:string" name="address"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="LoginResponse" type="xs:string"/>
+
+    <!--Logout-->
+
+    <xs:element name="LogoutRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="sessionId"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--InitImportChangesSet-->
+
+    <xs:element name="InitImportChangesSetRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
+                <xs:element name="changesSet" type="initChangesSetType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="InitImportChangesSetResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="changesSet" type="responseToInitImportChangesSetType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--ExportChangesSet-->
+
+    <xs:element name="ExportChangesSetRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ExportChangesSetResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="changesSet" type="changesSetType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--ResponseToExportChangesSet-->
+
+    <xs:element name="ResponseToExportChangesSetRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
+                <xs:element name="responseToChangesSet" type="responseToChangesSetType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--ImportChangesSetRequest-->
+
+    <xs:element name="ImportChangesSetRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
+                <xs:element name="changesSet" type="importChangesSetType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ImportChangesSetResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="changesSet" type="responseToChangesSetType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="importChangesSetType">
+        <xs:sequence>
+            <xs:element type="bankRegionsType" name="bankRegions"/>
+            <xs:element type="banksType" name="banks"/>
+            <xs:element type="currenciesType" name="currencies"/>
+            <xs:element type="employeesType" name="employees"/>
+            <xs:element type="positionsType" name="positions"/>
+            <xs:element type="departmentsType" name="departments"/>
+            <xs:element type="organizationsType" name="organizations"/>
+            <xs:element type="scheduleVacationsType" name="scheduleVacations"/>
+            <xs:element type="simpleDocsType" name="simpleDocs"/>
+            <xs:element type="subsidiariesType" name="subsidiaries"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="id"/>
+    </xs:complexType>
+
+    <xs:complexType name="initChangesSetType">
+        <xs:sequence>
+            <xs:element type="bankRegionsType" name="bankRegions"/>
+            <xs:element type="banksType" name="banks"/>
+            <xs:element type="currenciesType" name="currencies"/>
+            <xs:element type="clientsInputType" name="clients"/>
+            <xs:element type="accountsInputType" name="accounts"/>
+            <xs:element type="contractsInputType" name="contracts"/>
+            <xs:element type="employeesType" name="employees"/>
+            <xs:element type="positionsType" name="positions"/>
+            <xs:element type="departmentsType" name="departments"/>
+            <xs:element type="organizationsType" name="organizations"/>
+            <xs:element type="scheduleVacationsType" name="scheduleVacations"/>
+            <xs:element type="simpleDocsType" name="simpleDocs"/>
+            <xs:element type="subsidiariesType" name="subsidiaries"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="id"/>
+    </xs:complexType>
+
+    <xs:complexType name="changesSetType">
+        <xs:sequence>
+            <xs:element type="clientsExportType" name="clients"/>
+            <xs:element type="accountsExportType" name="accounts"/>
+            <xs:element type="contractsExportType" name="contracts"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="id"/>
+    </xs:complexType>
+
+    <xs:complexType name="responseToChangesSetType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="date"/>
+            <xs:element type="xs:boolean" name="result"/>
+            <xs:element type="errorsType" name="errors" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="id"/>
+    </xs:complexType>
+    <xs:complexType name="errorsType">
+        <xs:sequence>
+            <xs:element type="errorType" name="error"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="errorType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="type"/>
+            <xs:element type="xs:string" name="msg"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="responseToInitImportChangesSetType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="date"/>
+            <xs:element type="xs:boolean" name="result"/>
+            <xs:element type="errorsType" name="errors" minOccurs="0"/>
+            <xs:element type="importCurrenciesPairType" name="currencies" minOccurs="0"/>
+            <xs:element type="importBankRegionsPairType" name="bankRegions" minOccurs="0"/>
+            <xs:element type="importBanksPairType" name="banks" minOccurs="0"/>
+            <xs:element type="importClientsPairType" name="clients" minOccurs="0"/>
+            <xs:element type="importAccountsPairType" name="accounts" minOccurs="0"/>
+            <xs:element type="importContractsPairType" name="contracts" minOccurs="0"/>
+            <xs:element type="importEmployeesPairType" name="employees" minOccurs="0"/>
+            <xs:element type="importPositionsPairType" name="positions" minOccurs="0"/>
+            <xs:element type="importDepartmentsPairType" name="departments" minOccurs="0"/>
+            <xs:element type="importOrganizationsPairType" name="organizations" minOccurs="0"/>
+            <xs:element type="importScheduleVacationsPairType" name="scheduleVacations" minOccurs="0"/>
+            <xs:element type="importSimpleDocsPairType" name="simpleDocs" minOccurs="0"/>
+            <xs:element type="importSubsidiariesPairType" name="subsidiaries" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="id"/>
+    </xs:complexType>
+
+    <xs:complexType name="importCurrenciesPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="currency" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importBankRegionsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="bankRegion" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importBanksPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="bank" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importClientsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="client" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importAccountsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="account" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importContractsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="contract" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importEmployeesPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="employee" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importPositionsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="position" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importDepartmentsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="department" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importOrganizationsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="organization" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importScheduleVacationsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="scheduleVacation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importSimpleDocsPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="simpleDoc" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="importSubsidiariesPairType">
+        <xs:sequence>
+            <xs:element type="importEntityPairType" name="subsidiary" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="importEntityPairType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="tezisId"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="currenciesType">
+        <xs:sequence>
+            <xs:element type="currencyType" name="currency" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="currencyType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="code"/>
+            <xs:element type="xs:string" name="digitalCode"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="bankRegionsType">
+        <xs:sequence>
+            <xs:element type="bankRegionType" name="bankRegion" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="bankRegionType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="code"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="banksType">
+        <xs:sequence>
+            <xs:element type="bankType" name="bank" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="bankType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="shortName"/>
+            <xs:element type="xs:string" name="bik"/>
+            <xs:element type="xs:string" name="corAccount"/>
+            <xs:element type="xs:string" name="address"/>
+            <xs:element type="xs:string" name="bankRegionId"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="accountsInputType">
+        <xs:sequence>
+            <xs:element type="accountInputType" name="account" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="accountsExportType">
+        <xs:sequence>
+            <xs:element type="accountExportType" name="account" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="accountInputType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="accountName"/>
+            <xs:element type="xs:string" name="accountNo"/>
+            <xs:element type="xs:string" name="correspondentNo"/>
+            <xs:element type="xs:string" name="contractorId"/>
+            <xs:element type="xs:string" name="bankId"/>
+            <xs:element type="xs:string" name="currencyId"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType"/>
+    </xs:complexType>
+    <xs:complexType name="accountExportType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="accountName"/>
+            <xs:element type="xs:string" name="externalId"/>
+            <xs:element type="xs:string" name="accountNo"/>
+            <xs:element type="xs:string" name="correspondentNo"/>
+            <xs:element type="xs:string" name="contractorId"/>
+            <xs:element type="xs:string" name="contractorExternalId"/>
+            <xs:element type="xs:string" name="bankId"/>
+            <xs:element type="xs:string" name="bankExternalId"/>
+            <xs:element type="xs:string" name="currencyId"/>
+            <xs:element type="xs:string" name="currencyExternalId"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType"/>
+    </xs:complexType>
+
+    <xs:complexType name="clientsInputType">
+        <xs:sequence>
+            <xs:element type="clientInputType" name="client" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="clientsExportType">
+        <xs:sequence>
+            <xs:element type="clientExportType" name="client" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="clientInputType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="clientName"/>
+            <xs:element type="xs:string" name="clientFullName" minOccurs="0"/>
+            <xs:element type="xs:string" name="legalAddress"/>
+            <xs:element type="xs:string" name="postalAddress"/>
+            <xs:element type="xs:string" name="phone"/>
+            <xs:element type="xs:string" name="email"/>
+            <xs:element type="xs:string" name="inn"/>
+            <xs:element type="xs:string" name="kpp" minOccurs="0"/>
+            <xs:element type="xs:string" name="okpo" minOccurs="0"/>
+            <xs:element type="xs:string" name="resident" minOccurs="0"/>
+            <xs:element type="xs:string" name="comment"/>
+            <xs:element type="xs:string" name="updateTs"/>
+            <xs:element type="xs:string" name="clientTypeCode"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="clientExportType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="externalId"/>
+            <xs:element type="xs:string" name="clientName"/>
+            <xs:element type="xs:string" name="clientFullName" minOccurs="0"/>
+            <xs:element type="xs:string" name="legalAddress"/>
+            <xs:element type="xs:string" name="postalAddress"/>
+            <xs:element type="xs:string" name="phone"/>
+            <xs:element type="xs:string" name="email"/>
+            <xs:element type="xs:string" name="inn"/>
+            <xs:element type="xs:string" name="kpp" minOccurs="0"/>
+            <xs:element type="xs:string" name="okpo" minOccurs="0"/>
+            <xs:element type="xs:string" name="resident" minOccurs="0"/>
+            <xs:element type="xs:string" name="comment"/>
+            <xs:element type="xs:string" name="updateTs"/>
+            <xs:element type="xs:string" name="clientTypeCode"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="contractsInputType">
+        <xs:sequence>
+            <xs:element type="contractInputType" name="contract" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="contractsExportType">
+        <xs:sequence>
+            <xs:element type="contractExportType" name="contract" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="contractInputType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="contractNumber"/>
+            <xs:element type="xs:string" name="contractDate"/>
+            <xs:element type="xs:string" name="description"/>
+            <xs:element type="xs:string" name="amount"/>
+            <xs:element type="xs:string" name="vatRate"/>
+            <xs:element type="xs:string" name="vatAmount"/>
+            <xs:element type="xs:string" name="vatInclusive"/>
+            <xs:element type="xs:string" name="liabilityStart"/>
+            <xs:element type="xs:string" name="liabilityEnd"/>
+            <xs:element type="xs:string" name="comment"/>
+            <xs:element type="xs:string" name="contractorId"/>
+            <xs:element type="xs:string" name="currencyId"/>
+            <xs:element type="xs:string" name="docKind"/>
+            <xs:element type="xs:string" name="owner"/>
+            <xs:element type="xs:string" name="organizationInn"/>
+            <xs:element type="xs:string" name="organizationKpp"/>
+            <xs:element type="xs:string" name="contractType"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="contractExportType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="externalId"/>
+            <xs:element type="xs:string" name="contractNumber"/>
+            <xs:element type="xs:string" name="contractDate"/>
+            <xs:element type="xs:string" name="description"/>
+            <xs:element type="xs:string" name="amount"/>
+            <xs:element type="xs:string" name="vatRate"/>
+            <xs:element type="xs:string" name="vatAmount"/>
+            <xs:element type="xs:string" name="vatInclusive"/>
+            <xs:element type="xs:string" name="liabilityStart"/>
+            <xs:element type="xs:string" name="liabilityEnd"/>
+            <xs:element type="xs:string" name="comment"/>
+            <xs:element type="xs:string" name="contractorId"/>
+            <xs:element type="xs:string" name="contractorExternalId"/>
+            <xs:element type="xs:string" name="currencyId"/>
+            <xs:element type="xs:string" name="currencyExternalId"/>
+            <xs:element type="xs:string" name="docKind"/>
+            <xs:element type="xs:string" name="owner"/>
+            <xs:element type="xs:string" name="organizationInn"/>
+            <xs:element type="xs:string" name="organizationKpp"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="employeesType">
+        <xs:sequence>
+            <xs:element type="employeeType" name="employee" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="employeeType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="firstName"/>
+            <xs:element type="xs:string" name="lastName"/>
+            <xs:element type="xs:string" name="middleName"/>
+            <xs:element type="xs:string" name="positionId"/>
+            <xs:element type="xs:string" name="phone"/>
+            <xs:element type="xs:string" name="fax"/>
+            <xs:element type="xs:string" name="email"/>
+            <xs:element type="xs:string" name="sex"/>
+            <xs:element type="xs:string" name="birthday"/>
+            <xs:element type="xs:string" name="number"/>
+            <xs:element type="xs:string" name="departmentId"/>
+            <xs:element type="xs:string" name="mobilePhone"/>
+            <xs:element type="xs:string" name="organizationId"/>
+            <xs:element type="xs:string" name="photo"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="positionsType">
+        <xs:sequence>
+            <xs:element type="positionType" name="position" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="positionType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="organizationId"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="departmentsType">
+        <xs:sequence>
+            <xs:element type="departmentType" name="department" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="departmentType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="code"/>
+            <xs:element type="xs:string" name="parentDepartmentId"/>
+            <xs:element type="xs:string" name="organizationId"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="organizationsType">
+        <xs:sequence>
+            <xs:element type="organizationType" name="organization" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="organizationType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="code"/>
+            <xs:element type="xs:string" name="fullName"/>
+            <xs:element type="xs:string" name="postalAddress"/>
+            <xs:element type="xs:string" name="legalAddress"/>
+            <xs:element type="xs:string" name="email"/>
+            <xs:element type="xs:string" name="phone"/>
+            <xs:element type="xs:string" name="fax"/>
+            <xs:element type="xs:string" name="inn"/>
+            <xs:element type="xs:string" name="kpp"/>
+            <xs:element type="xs:string" name="okpo"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="scheduleVacationsType">
+        <xs:sequence>
+            <xs:element type="scheduleVacationType" name="scheduleVacation" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="scheduleVacationType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="number"/>
+            <xs:element type="xs:string" name="date"/>
+            <xs:element type="xs:string" name="organizationId"/>
+            <xs:element type="xs:string" name="comment"/>
+            <xs:element type="xs:string" name="employeeId"/>
+            <xs:element type="xs:string" name="startDate"/>
+            <xs:element type="xs:string" name="endDate"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="simpleDocsType">
+        <xs:sequence>
+            <xs:element type="simpleDocType" name="simpleDoc" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="simpleDocType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="id"/>
+            <xs:element type="xs:string" name="number"/>
+            <xs:element type="xs:string" name="date"/>
+            <xs:element type="xs:string" name="organizationId"/>
+            <xs:element type="xs:string" name="comment"/>
+            <xs:element type="xs:string" name="employeeId"/>
+            <xs:element type="xs:string" name="dateFrom"/>
+            <xs:element type="xs:string" name="dateTo"/>
+
+            <!--Not null in vacation orders-->
+            <xs:element type="xs:string" name="vacationReason" nillable="true"/>
+
+            <!--Not null in business trip orders-->
+            <xs:element type="xs:string" name="destCountry" nillable="true"/>
+            <xs:element type="xs:string" name="destOrganization" nillable="true"/>
+            <xs:element type="xs:string" name="funding" nillable="true"/>
+            <xs:element type="xs:string" name="tripPurpose" nillable="true"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="changeType" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="subsidiariesType">
+        <xs:sequence>
+            <xs:element type="subsidiaryType" name="subsidiary" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="subsidiaryType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="code"/>
+            <xs:element type="xs:string" name="inn"/>
+            <xs:element type="xs:string" name="organizationId"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

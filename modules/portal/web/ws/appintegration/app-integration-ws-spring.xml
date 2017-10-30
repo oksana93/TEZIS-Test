@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) ${YEAR} ${PACKAGE_NAME}
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="appIntegrationPayloadMapping"
+          class="org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping">
+        <property name="mappings">
+            <props>
+                <prop key="{http://www.haulmont.com/schema/thesis/appintegration}LoginRequest">
+                    appIntegrationLoginEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/appintegration}LogoutRequest">
+                    appIntegrationLogoutEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/appintegration}InitImportChangesSetRequest">
+                    initImportChangesSetEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/appintegration}ExportChangesSetRequest">
+                    exportChangesSetEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/appintegration}ResponseToExportChangesSetRequest">
+                    responseExportChangesSetEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/appintegration}ImportChangesSetRequest">
+                    importChangesSetEndpoint
+                </prop>
+            </props>
+        </property>
+        <property name="interceptors">
+            <list>
+                <ref local="appIntegrationValidatingInterceptor"/>
+                <ref local="loggingInterceptor"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="initImportChangesSetEndpoint" class="com.haulmont.thesis.portal.appintegration.InitImportChangesSetEndpoint"/>
+
+    <bean id="exportChangesSetEndpoint"
+          class="com.haulmont.thesis.portal.appintegration.ExportChangesSetEndpoint">
+    </bean>
+
+    <bean id="responseExportChangesSetEndpoint"
+          class="com.haulmont.thesis.portal.appintegration.ResponseToExportChangesSetEndpoint">
+    </bean>
+
+    <bean id="importChangesSetEndpoint"
+          class="com.haulmont.thesis.portal.appintegration.ImportChangesSetEndpoint">
+    </bean>
+
+    <bean id="appIntegrationLoginEndpoint"
+          class="com.haulmont.thesis.portal.ws.LoginEndpoint">
+
+        <property name="service" ref="loginService"/>
+        <property name="schema" value="http://www.haulmont.com/schema/thesis/appintegration"/>
+    </bean>
+
+    <bean id="appIntegrationLogoutEndpoint"
+          class="com.haulmont.thesis.portal.ws.LogoutEndpoint">
+        <property name="service" ref="loginService"/>
+    </bean>
+
+    <bean id="appIntegrationValidatingInterceptor"
+          class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
+        <property name="xsdSchema" ref="appIntegrationSchema"/>
+        <property name="validateRequest" value="true"/>
+        <property name="validateResponse" value="true"/>
+    </bean>
+
+    <bean id="loggingInterceptor" class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/>
+
+    <bean id="appIntegration" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+        <property name="schema" ref="appIntegrationSchema"/>
+        <property name="portTypeName" value="AppIntegration"/>
+        <property name="locationUri" value="http://${cuba.webHostName}:${cuba.webPort}/${cuba.webContextName}/ws/appIntegration"/>
+    </bean>
+
+    <bean id="appIntegrationSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="/WEB-INF/ws/appintegration/app-integration.xsd"/>
+    </bean>
+</beans>

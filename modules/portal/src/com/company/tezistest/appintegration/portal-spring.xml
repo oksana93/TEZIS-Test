@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
+       xmlns:context="http://www.springframework.org/schema/context">
+
+    <context:component-scan base-package="com.company.tezistest"/>
+
+    <bean id="tezistest_proxyCreator" class="com.haulmont.cuba.portal.sys.remoting.PortalRemoteProxyBeanCreator">
+        <property name="clusterInvocationSupport" ref="cuba_clusterInvocationSupport"/>
+        <property name="remoteServices">
+            <map>
+                <entry key="tezistest_CreateLetterServiceBean" value="com.company.tezistest.service.CreateLetterService"/>
+            </map>
+        </property>
+    </bean>
+</beans>
