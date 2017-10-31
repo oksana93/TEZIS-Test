@@ -122,20 +122,20 @@ configure(coreModule) {
                 'thesis-cryptopro-global','tezistest-global', 'tezistest-core')
     }
 
-    task createDb(dependsOn: assemble, description: 'Creates local database', type: CubaDbCreation) {
-        dbms = 'postgres'
-        host = 'localhost'
-        dbName = 'tezistest'
-        dbUser = 'root'
-        dbPassword = 'root'
+    task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
+        dbms =gradle.ext.dbms
+        host = gradle.ext.host
+        dbName = gradle.ext.dbName
+        dbUser = gradle.ext.dbUser
+        dbPassword = gradle.ext.dbPassword
     }
 
-    task updateDb(dependsOn: assemble, description: 'Updates local database', type: CubaDbUpdate) {
-        dbms = 'postgres'
-        host = 'localhost'
-        dbName = 'tezistest'
-        dbUser = 'root'
-        dbPassword = 'root'
+    task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
+        dbms =gradle.ext.dbms
+        host = gradle.ext.host
+        dbName = gradle.ext.dbName
+        dbUser = gradle.ext.dbUser
+        dbPassword = gradle.ext.dbPassword
     }
 }
 
