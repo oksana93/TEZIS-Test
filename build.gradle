@@ -1,9 +1,9 @@
-
 allprojects {
     ext.artifactGroup = 'com.company.tezistest'
     ext.artifactVersion = '0.1'
     ext.isSnapshot = true
     ext.tomcatDir = "$rootDir/deploy/tomcat"
+    ext.licenseAgreementAccepted = true
     ext.copyright = '''Copyright (c) ${YEAR} ${PACKAGE_NAME}''' // Copyright Notice for IDEA project
     ext.classComment = '''/**
  * @author ${USER}

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) ${YEAR} ${PACKAGE_NAME}
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="portalPayloadMapping"
+          class="org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping">
+        <property name="mappings">
+            <props>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}GetAuthTypeRequest">
+                    getAuthTypeEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}GetCryptTypeRequest">
+                    getCryptTypeEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}LoginRequest">
+                    portalLoginEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}LogoutRequest">
+                    portalLogoutEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}GetDocsByPublishStateRequest">
+                    getDocsByPublishStateEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}StartRegistrationRequest">
+                    startRegistrationEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}UpdatePortalPublishStateRequest">
+                    updatePortalPublishStateEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}UpdatePortalPublishErrorDescriptionRequest">
+                    updatePortalPublishErrorDescriptionEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}GetAppFoldersRequest">
+                    getAppFoldersEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}GetNotificationsRequest">
+                    getNotificationsEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}GetNotificationsByUsersAndDateRequest">
+                    getNotificationsByUsersAndDateEndpoint
+                </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}CreateLetterRequest">
+                    createLetterEndpoint
+                </prop>
+
+            </props>
+        </property>
+        <property name="interceptors">
+            <list>
+                <ref local="payloadLoggingInterceptor"/>
+                <ref local="soapEnvelopeLoggingInterceptor"/>
+                <ref local="authInterceptor"/>
+                <ref local="portalValidatingInterceptor"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="getAuthTypeEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.GetAuthTypeEndpoint"/>
+    <bean id="getCryptTypeEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.GetCryptTypeEndpoint"/>
+    <bean id="getDocsByPublishStateEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.GetDocByPublishStateEndpoint"/>
+    <bean id="startRegistrationEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.StartRegistrationEndpoint"/>
+    <bean id="updatePortalPublishStateEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.UpdatePortalPublishStateEndpoint"/>
+    <bean id="updatePortalPublishErrorDescriptionEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.UpdatePortalPublishErrorDescriptionEndpoint"/>
+    <bean id="getAppFoldersEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.GetAppFoldersEndpoint"/>
+    <bean id="getNotificationsEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.GetNotificationsEndpoint">
+        <property name="service" ref="reminderWebService"/>
+    </bean>
+    <bean id="getNotificationsByUsersAndDateEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.GetNotificationsByUsersAndDateEndpoint">
+        <property name="service" ref="reminderWebService"/>
+    </bean>
+    <bean id="createLetterEndpoint" class="com.company.tezistest.appintegration.CreateLetterEndpoint"/>
+
+
+    <bean id="portalLoginEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.PortalLoginEndpoint">
+        <property name="service" ref="loginService"/>
+        <property name="schema" value="http://www.haulmont.com/schema/thesis/portalIntegration"/>
+    </bean>
+
+    <bean id="portalLogoutEndpoint"
+          class="com.haulmont.thesis.portal.ws.LogoutEndpoint">
+        <property name="service" ref="loginService"/>
+    </bean>
+
+    <bean id="authInterceptor"
+          class="com.haulmont.thesis.portal.portalintegration.endpoint.interceptor.AuthInterceptor">
+        <property name="authInterceptorExcludedEndpoints">
+            <list>
+                <value>com.haulmont.thesis.portal.portalintegration.endpoint.PortalLoginEndpoint</value>
+                <value>com.haulmont.thesis.portal.ws.LogoutEndpoint</value>
+                <value>com.haulmont.thesis.portal.portalintegration.endpoint.GetAuthTypeEndpoint</value>
+                <value>com.haulmont.thesis.portal.portalintegration.endpoint.GetCryptTypeEndpoint</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="portalValidatingInterceptor"
+          class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
+        <property name="xsdSchema" ref="portalIntegrationSchema"/>
+        <property name="validateRequest" value="true"/>
+        <property name="validateResponse" value="true"/>
+    </bean>
+
+    <bean id="payloadLoggingInterceptor" class="com.haulmont.thesis.portal.portalintegration.endpoint.interceptor.PortalIntegrationLoggingInterceptor"/>
+    <bean id="soapEnvelopeLoggingInterceptor" class="com.haulmont.thesis.portal.portalintegration.endpoint.interceptor.PortalIntegrationSoapLoggingInterceptor"/>
+
+
+    <bean id="portalIntegration" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+        <property name="schema" ref="portalIntegrationSchema"/>
+        <property name="portTypeName" value="PortalIntegration"/>
+        <property name="locationUri" value="http://${cuba.webHostName}:${cuba.webPort}/${cuba.webContextName}/ws/portalIntegration"/>
+    </bean>
+
+    <bean id="portalIntegrationSchema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+        <property name="xsd" value="/WEB-INF/ws/portalintegration/portal-ws.xsd"/>
+    </bean>
+</beans>

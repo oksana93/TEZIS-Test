@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.haulmont.com/schema/thesis/portalIntegration"
+           targetNamespace="http://www.haulmont.com/schema/thesis/portalIntegration">
+
+    <!--GetAuthType-->
+
+    <xs:element name="GetAuthTypeRequest"/>
+
+    <xs:element name="GetAuthTypeResponse">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="authType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--GetCryptType-->
+
+    <xs:element name="GetCryptTypeRequest"/>
+
+    <xs:element name="GetCryptTypeResponse">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element name="cryptType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Login-->
+
+    <xs:element name="LoginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="login"/>
+                <xs:element type="xs:string" name="password"/>
+                <xs:element type="xs:string" name="locale"/>
+                <xs:element type="xs:string" name="address"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="LoginResponse" type="xs:string"/>
+
+    <!--Logout-->
+
+    <xs:element name="LogoutRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="sessionId"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--GetNotifications-->
+
+    <xs:element name="GetNotificationsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="sessionId"/>
+                <xs:element type="xs:string" name="portalUserLogin"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetNotificationsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="notification" type="notificationType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetNotificationsByUsersAndDateRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="sessionId"/>
+                <xs:element name="userLogins">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="userLogin" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element type="xs:dateTime" name="dateFrom" minOccurs="1" maxOccurs="1"/>
+                <xs:element type="xs:dateTime" name="dateTo" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetNotificationsByUsersAndDateResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="notification" type="notificationWithLoginType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--GetDocToPublish-->
+
+    <xs:element name="GetDocsByPublishStateRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="portalPublishState" type="portalPublishStateType"/>
+                <xs:element name="sessionId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetDocsByPublishStateResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="doc" type="docType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--StartProcess-->
+
+    <xs:element name="StartRegistrationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="portalAuthorName" type="xs:string"/>
+                <xs:element name="portalAuthorEmail" type="xs:string"/>
+                <xs:element name="fileDescriptorId" type="xs:string"/>
+                <xs:element name="subject" type="xs:string"/>
+                <xs:element name="sessionId" type="xs:string"/>
+                <xs:element type="xs:string" name="portalUserLogin"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="StartRegistrationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="docId" type="xs:string"/>
+                <xs:element name="docUrl" type="xs:string"/>
+                <xs:element name="docNumber" type="xs:string"/>
+                <xs:element name="docDescription" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--UpdateDocStatus-->
+
+    <xs:element name="UpdatePortalPublishStateRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="docId" type="xs:string"/>
+                <xs:element name="portalPublishState" type="portalPublishStateType"/>
+                <xs:element name="sessionId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdatePortalPublishStateResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="response" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--UpdatePortalPublishErrorDescription-->
+    <xs:element name="UpdatePortalPublishErrorDescriptionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="docId" type="xs:string"/>
+                <xs:element name="errorDescription" type="stringLimitedMaxLength2000"/>
+                <xs:element name="sessionId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdatePortalPublishErrorDescriptionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="response" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--GetFolders-->
+
+    <xs:element name="GetAppFoldersRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
+                <xs:element type="xs:string" name="portalUserLogin"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetAppFoldersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="folder" type="folderType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- CreateLetter-->
+
+
+    <xs:element name="CreateLetterRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="number" type="xs:string"/>
+                <xs:element name="theme" type="xs:string"/>
+                <xs:element name="text" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateLetterResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="letter" type="letterType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+
+    <!-- Types -->
+
+    <xs:simpleType name="authType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STD"/>
+            <xs:enumeration value="AD"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="cryptType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SHA"/>
+            <xs:enumeration value="MD5"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="portalPublishStateType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MARKED_TO_PUBLISH"/>
+            <xs:enumeration value="MARKED_TO_UNPUBLISH"/>
+            <xs:enumeration value="PUBLISHED"/>
+            <xs:enumeration value="UNPUBLISHED"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="letterType">
+        <xs:sequence>
+            <xs:element name="docId" type="xs:string"/>
+            <xs:element name="theme" type="xs:string"/>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element name="docKind" type="xs:string"/>
+            <xs:element name="date" type="xs:string"/>
+            <xs:element name="regDate" type="xs:string"/>
+            <xs:element name="content" type="xs:string"/>
+            <xs:element name="organization" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="docType">
+        <xs:sequence>
+            <xs:element name="docKind" type="xs:string"/>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element name="date" type="xs:string"/>
+            <xs:element name="regNumber" type="xs:string"/>
+            <xs:element name="regDate" type="xs:string"/>
+            <xs:element name="content" type="xs:string"/>
+            <xs:element name="organization" type="xs:string"/>
+            <xs:element name="department" type="xs:string"/>
+            <xs:element name="docId" type="xs:string"/>
+            <xs:element name="theme" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="attachments">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="attachment" type="attachmentType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="id"/>
+    </xs:complexType>
+
+
+    <xs:complexType name="attachmentType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="fileName" type="xs:string"/>
+            <xs:element name="fileSize" type="xs:integer"/>
+            <xs:element name="attachmentType" type="xs:string"/>
+            <xs:element name="fileId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="folderType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="parentId" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="locName" type="xs:string"/>
+            <xs:element name="quantity" type="xs:int"/>
+            <xs:element name="url" type="xs:string"/>
+            <xs:element name="hasUnreadNotifications" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="notificationType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="date" type="xs:dateTime"/>
+            <xs:element name="type" type="xs:int"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="card" type="notificationCardType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="notificationCardType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="url" type="xs:anyURI"/>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="notificationWithLoginType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="date" type="xs:dateTime"/>
+            <xs:element name="type" type="xs:int"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="userLogin" type="xs:string"/>
+            <xs:element name="card" type="notificationCardType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="stringLimitedMaxLength2000">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2000" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
