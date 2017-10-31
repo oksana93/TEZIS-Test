@@ -46,6 +46,9 @@
                 <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}CreateLetterRequest">
                     createLetterEndpoint
                 </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}CreateTaskRequest">
+                    createTaskEndpoint
+                </prop>
 
             </props>
         </property>
@@ -72,6 +75,7 @@
         <property name="service" ref="reminderWebService"/>
     </bean>
     <bean id="createLetterEndpoint" class="com.company.tezistest.appintegration.CreateLetterEndpoint"/>
+    <bean id="createTaskEndpoint" class="com.company.tezistest.appintegration.CreateTaskEndpoint"/>
 
 
     <bean id="portalLoginEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.PortalLoginEndpoint">
