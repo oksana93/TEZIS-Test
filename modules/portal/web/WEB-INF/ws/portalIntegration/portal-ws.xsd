@@ -223,8 +223,26 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- CreateTaskEndpoint-->
 
+    <xs:element name="CreateTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="finishDatePlan" type="xs:date" maxOccurs="1" minOccurs="1"/>
+                <xs:element name="initiatorId" type="xs:string"/>
+                <xs:element name="executorId" type="xs:string"/>
+                <xs:element name="taskName" type="xs:string" maxOccurs="1" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
+    <xs:element name="CreateTaskResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="task" type="taskType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
     <!-- Types -->
 
@@ -261,6 +279,13 @@
             <xs:element name="regDate" type="xs:string"/>
             <xs:element name="content" type="xs:string"/>
             <xs:element name="organization" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="taskType">
+        <xs:sequence>
+            <xs:element name="taskId" type="xs:string"/>
+            <xs:element name="num" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -342,7 +367,7 @@
 
     <xs:simpleType name="stringLimitedMaxLength2000">
         <xs:restriction base="xs:string">
-            <xs:maxLength value="2000" />
+            <xs:maxLength value="2000"/>
         </xs:restriction>
     </xs:simpleType>
 
