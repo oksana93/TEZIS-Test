@@ -228,6 +228,7 @@
     <xs:element name="CreateTaskRequest">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
                 <xs:element name="finishDatePlan" type="xs:date" maxOccurs="1" minOccurs="1"/>
                 <xs:element name="initiatorId" type="xs:string"/>
                 <xs:element name="executorId" type="xs:string"/>
