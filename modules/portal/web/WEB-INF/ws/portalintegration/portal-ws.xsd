@@ -208,6 +208,7 @@
     <xs:element name="CreateLetterRequest">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
                 <xs:element name="number" type="xs:string"/>
                 <xs:element name="theme" type="xs:string"/>
                 <xs:element name="text" type="xs:string"/>
