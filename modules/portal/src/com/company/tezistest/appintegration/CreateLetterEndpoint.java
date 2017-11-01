@@ -31,7 +31,7 @@ public class CreateLetterEndpoint extends AbstractPortalEndpoint {
         letterElm.addElement("number").setText(StringUtils.isEmpty(letter.getNumber()) ? "" : letter.getNumber());
         letterElm.addElement("theme").setText(StringUtils.isEmpty(letter.getTheme()) ? "" : letter.getTheme());
         letterElm.addElement("docKind").setText(letter.getDocKind().getName());
-        letterElm.addElement("date").setText(letter.getDate() == null ? " " : letter.getCreateDate().toString());
+        letterElm.addElement("date").setText(letter.getDate() == null ? " " : letter.getDate().toString());
         letterElm.addElement("content").setText(StringUtils.isEmpty(letter.getComment()) ? "" : letter.getComment());
         letterElm.addElement("organization").setText(letter.getOrganization() == null ? "" : letter.getOrganization().getFullName());
 
