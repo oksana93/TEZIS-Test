@@ -38,9 +38,4 @@ public class CreateTaskEndpoint extends AbstractPortalEndpoint {
         taskResponse.addElement("num",newTask.getNum());
         return taskResponse;
     }
-
-    protected String formatDate(java.util.Date date) {
-        if (date == null) return "";
-        return sdf.format(date);
-    }
 }
