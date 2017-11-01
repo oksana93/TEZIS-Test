@@ -20,8 +20,10 @@ public class CreateLetterEndpoint extends AbstractPortalEndpoint {
         String docNumber = (requestElement.element("number")).getText();
         String docTheme = (requestElement.element("theme")).getText();
         String docText = (requestElement.element("text")).getText();
+
         CreateLetterService createLetterService = AppBeans.get(CreateLetterService.NAME);
         SimpleDoc letter = createLetterService.createLetter(docNumber, docTheme, docText);
+
         Element response = responseDocument.addElement("CreateLetterResponse", SCHEMA_URI);
         Element letterElm = response.addElement("letter");
         letterElm.addElement("docId").setText(letter.getId().toString());
