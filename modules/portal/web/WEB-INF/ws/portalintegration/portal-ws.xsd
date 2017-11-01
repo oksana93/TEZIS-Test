@@ -246,6 +246,28 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- GetDocKind-->
+
+
+    <xs:element name="GetDocKindRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetDocKindResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="docKind" type="docKindType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+
     <!-- Types -->
 
     <xs:simpleType name="authType">
@@ -288,6 +310,14 @@
         <xs:sequence>
             <xs:element name="taskId" type="xs:string"/>
             <xs:element name="num" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="docKindType">
+        <xs:sequence>
+            <xs:element name="docId" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="docTypeName" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 

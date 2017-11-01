@@ -28,4 +28,20 @@
             </bean>
         </property>
     </bean>
+    <bean id="TEZIS-Test_SelectionOfDocKindMBean" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+        <property name="beans">
+            <map>
+                <entry key="${cuba.webContextName}:com.company.tezistest.service=SelectionOfDocKind" value-ref="TEZIS-Test_SelectionOfDocKind"/>
+            </map>
+        </property>
+        <property name="assembler">
+            <bean class="org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler">
+                <property name="interfaceMappings">
+                    <map>
+                        <entry key="TEZIS-Test_SelectionOfDocKind" value="com.company.tezistest.core.app.SelectionOfDocKindMBean"/>
+                    </map>
+                </property>
+            </bean>
+        </property>
+    </bean>
 </beans>
