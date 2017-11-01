@@ -17,7 +17,6 @@ public class TaskComponent {
     protected Persistence persistence;
 
     public void createTask(Task entity) {
-
         Transaction tx = persistence.createTransaction();
         try {
             EntityManager em = persistence.getEntityManager();
