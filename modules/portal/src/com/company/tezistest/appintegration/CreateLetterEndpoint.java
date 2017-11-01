@@ -9,6 +9,7 @@ import com.company.tezistest.service.CreateLetterService;
 import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.thesis.core.entity.SimpleDoc;
 import com.haulmont.thesis.portal.portalintegration.endpoint.AbstractPortalEndpoint;
+import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
@@ -27,12 +28,11 @@ public class CreateLetterEndpoint extends AbstractPortalEndpoint {
         Element response = responseDocument.addElement("CreateLetterResponse", SCHEMA_URI);
         Element letterElm = response.addElement("letter");
         letterElm.addElement("docId").setText(letter.getId().toString());
-        letterElm.addElement("number").setText(letter.getNumber() == null ? "" :letter.getNumber());
-        letterElm.addElement("theme").setText(letter.getTheme() == null ? "" :letter.getTheme());
+        letterElm.addElement("number").setText(StringUtils.isEmpty(letter.getNumber()) ? "" : letter.getNumber());
+        letterElm.addElement("theme").setText(StringUtils.isEmpty(letter.getTheme()) ? "" : letter.getTheme());
         letterElm.addElement("docKind").setText(letter.getDocKind().getName());
-        letterElm.addElement("date").setText(letter.getDate().toString());
-        letterElm.addElement("regDate").setText(letter.getRegDate().toString());
-        letterElm.addElement("content").setText(letter.getComment() == null ? "" : letter.getComment());
+        letterElm.addElement("date").setText(letter.getDate() == null ? " " : letter.getCreateDate().toString());
+        letterElm.addElement("content").setText(StringUtils.isEmpty(letter.getComment()) ? "" : letter.getComment());
         letterElm.addElement("organization").setText(letter.getOrganization() == null ? "" : letter.getOrganization().getFullName());
 
         return response;
