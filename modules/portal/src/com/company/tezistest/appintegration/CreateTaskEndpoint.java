@@ -27,9 +27,12 @@ public class CreateTaskEndpoint extends AbstractPortalEndpoint {
     @Override
     protected Element processRequest(Element requestElement, Document responseDocument, Map<String, Object> preProcessResult) throws Exception {
         Datatype datatype = Datatypes.get(Date.class);
-        Date finishDatePlan = (Date) datatype.parse((requestElement.element("finishDatePlan")).getText());
-        UUID executorId = requestElement.element("executorId").getText() == ""? null: UUID.fromString(requestElement.element("executor").getText());
-        UUID initiatorId =  requestElement.element("initiatorId").getText() == ""? null: UUID.fromString(requestElement.element("initiator").getText());
+        Date finishDatePlan = (Date) datatype.parse(
+                (requestElement.element("finishDatePlan")).getText());
+        UUID executorId = requestElement.element("executorId").getText() == ""?
+                null: UUID.fromString(requestElement.element("executorId").getText());
+        UUID initiatorId =  requestElement.element("initiatorId").getText() == ""?
+                null: UUID.fromString(requestElement.element("initiatorId").getText());
         String taskName = requestElement.element("taskName").getText();
 
         Task newTask = taskService.createTask(finishDatePlan,executorId,initiatorId,taskName);
@@ -37,10 +40,5 @@ public class CreateTaskEndpoint extends AbstractPortalEndpoint {
         taskResponse.addElement("taskId",newTask.getId().toString());
         taskResponse.addElement("num",newTask.getNum());
         return taskResponse;
-    }
-
-    protected String formatDate(java.util.Date date) {
-        if (date == null) return "";
-        return sdf.format(date);
     }
 }
