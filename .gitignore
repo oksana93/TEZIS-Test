@@ -8,5 +8,3 @@ modules/*/build/*
 out
 test-run
 .idea
-modules/core/web/META-INF/context.xml
-soupUIInput.txt
