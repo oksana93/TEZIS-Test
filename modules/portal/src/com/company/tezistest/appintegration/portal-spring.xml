@@ -11,14 +11,6 @@
         <property name="remoteServices">
             <map>
                 <entry key="tezistest_CreateLetterServiceBean" value="com.company.tezistest.service.CreateLetterService"/>
-            </map>
-        </property>
-    </bean>
-
-    <bean id="tezistest_task_proxyCreator" class="com.haulmont.cuba.portal.sys.remoting.PortalRemoteProxyBeanCreator">
-        <property name="clusterInvocationSupport" ref="cuba_clusterInvocationSupport"/>
-        <property name="remoteServices">
-            <map>
                 <entry key="tezistest_TaskService" value="com.company.tezistest.service.TaskService"/>
             </map>
         </property>
