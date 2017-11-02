@@ -12,5 +12,4 @@ public interface SelectDocKindService {
     String NAME = "tezistest_SelectDocKindServiceBean";
 
     DocKind getDocKind(UUID uuid);
-
 }

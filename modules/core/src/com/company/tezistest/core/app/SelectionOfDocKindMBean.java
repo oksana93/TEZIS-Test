@@ -27,6 +27,4 @@ public interface SelectionOfDocKindMBean {
 
     @ManagedAttribute(description = "Type manual")
     void setManualType();
-
-
 }

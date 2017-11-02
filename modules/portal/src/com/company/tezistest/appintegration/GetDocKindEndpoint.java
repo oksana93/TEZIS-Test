@@ -20,7 +20,6 @@ public class GetDocKindEndpoint extends AbstractPortalEndpoint {
 
     @Override
     protected Element processRequest(Element requestElement, Document responseDocument, Map<String, Object> preProcessResult) throws Exception {
-
         SelectDocKindService selectDocKindService = AppBeans.get(SelectDocKindService.class);
         DocKindConfig docKindConfig = AppBeans.get(Configuration.class)
                 .getConfig(DocKindConfig.class);

@@ -204,7 +204,6 @@
 
     <!-- CreateLetter-->
 
-
     <xs:element name="CreateLetterRequest">
         <xs:complexType>
             <xs:sequence>
@@ -248,7 +247,6 @@
 
     <!-- GetDocKind-->
 
-
     <xs:element name="GetDocKindRequest">
         <xs:complexType>
             <xs:sequence>
@@ -264,9 +262,6 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
-
-
 
     <!-- Types -->
 

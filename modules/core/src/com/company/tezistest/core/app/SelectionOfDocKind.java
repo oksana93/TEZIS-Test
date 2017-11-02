@@ -19,8 +19,6 @@ public class SelectionOfDocKind implements SelectionOfDocKindMBean {
     public void setLetterType() {
         createConfiguration();
         docKindConfig.setDocKindUUID(SelectionOfDocKindMBean.LETTER_TYPE_UUID);
-
-
     }
 
     @Authenticated
@@ -28,7 +26,6 @@ public class SelectionOfDocKind implements SelectionOfDocKindMBean {
     public void setContractType() {
         createConfiguration();
         docKindConfig.setDocKindUUID(SelectionOfDocKindMBean.CONTRACT_TYPE_UUID);
-
     }
 
     @Authenticated
@@ -43,7 +40,6 @@ public class SelectionOfDocKind implements SelectionOfDocKindMBean {
     public void setRegulationsType() {
         createConfiguration();
         docKindConfig.setDocKindUUID(SelectionOfDocKindMBean.REGULATIONS_TYPE_UUID);
-
     }
 
     @Authenticated
@@ -51,7 +47,6 @@ public class SelectionOfDocKind implements SelectionOfDocKindMBean {
     public void setManualType() {
         createConfiguration();
         docKindConfig.setDocKindUUID(SelectionOfDocKindMBean.MANUAL_TYPE_UUID);
-
     }
 
     @Authenticated
@@ -60,8 +55,5 @@ public class SelectionOfDocKind implements SelectionOfDocKindMBean {
             docKindConfig = AppBeans.get(Configuration.class)
                     .getConfig(DocKindConfig.class);
         }
-
     }
-
-
 }
