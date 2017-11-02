@@ -272,7 +272,7 @@
                 <xs:element name="number" type="xs:string"/>
                 <xs:element name="budgetItemId" type="xs:string"/>
                 <xs:element name="contractorId" type="xs:string"/>
-                <xs:element name="paymentDate" type="xs:date"/>
+                <xs:element name="paymentDate" type="xs:date" minOccurs="0"/>
                 <xs:element name="amount" type="xs:string"/>
                 <xs:element name="paymentConditions" type="xs:string"/>
                 <xs:element name="paymentTermsList">
@@ -435,7 +435,7 @@
 			<xs:element name="number" type="xs:string"/>
 			<xs:element name="budgetItemId" type="xs:string"/>
 			<xs:element name="contractorId" type="xs:string"/>
-			<xs:element name="paymentDate" type="xs:date"/>
+			<xs:element name="paymentDate" type="xs:date" minOccurs="0"/>
 			<xs:element name="amount" type="xs:string"/>
 			<xs:element name="paymentConditions" type="xs:string"/>
             <xs:element name="paymentTermsList">
@@ -452,7 +452,7 @@
     <xs:complexType name="termType">
         <xs:sequence>
             <xs:element name="term" type="xs:string"/>
-            <xs:element name="deadLine" type="xs:date"/>
+            <xs:element name="deadLine" type="xs:date" minOccurs="0"/>
             <xs:element name="expired" type="xs:boolean"/>
         </xs:sequence>
     </xs:complexType>
