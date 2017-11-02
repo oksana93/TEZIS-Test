@@ -7,7 +7,6 @@ import com.haulmont.cuba.core.Transaction;
 import com.haulmont.thesis.core.entity.DocKind;
 import org.springframework.stereotype.Service;
 
-
 import javax.inject.Inject;
 import java.util.UUID;
 
@@ -22,7 +21,7 @@ public class SelectDocKindServiceBean implements SelectDocKindService {
     @Override
     public DocKind getDocKind(UUID uuid) {
         Transaction tx = persistence.createTransaction();
-        DocKind docKind = null;
+        DocKind docKind;
         try {
             EntityManager em = persistence.getEntityManager();
             Query query = em.createQuery("Select  d from df$DocKind d where d.id=?1")
@@ -32,8 +31,6 @@ public class SelectDocKindServiceBean implements SelectDocKindService {
         } finally {
             tx.end();
         }
-
-
         return docKind;
     }
 }
