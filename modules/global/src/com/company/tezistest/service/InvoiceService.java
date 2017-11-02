@@ -6,8 +6,8 @@ package com.company.tezistest.service;
 
 import com.company.tezistest.entity.Invoice;
 
+import java.sql.Date;
 import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
