@@ -12,6 +12,7 @@
             <map>
                 <entry key="tezistest_CreateLetterServiceBean" value="com.company.tezistest.service.CreateLetterService"/>
                 <entry key="tezistest_TaskService" value="com.company.tezistest.service.TaskService"/>
+                <entry key="tezistest_InvoiceService" value="com.company.tezistest.service.InvoiceService"/>
                 <entry key="tezistest_SelectDocKindServiceBean" value="com.company.tezistest.service.SelectDocKindService"/>
             </map>
         </property>

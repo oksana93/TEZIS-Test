@@ -263,6 +263,37 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- CreateInvoiceEndpoint-->
+
+    <xs:element name="CreateInvoiceRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:string"/>
+                <xs:element name="number" type="xs:string"/>
+                <xs:element name="budgetItemId" type="xs:string"/>
+                <xs:element name="contractorId" type="xs:string"/>
+                <xs:element name="paymentDate" type="xs:date" maxOccurs="1" minOccurs="1"/>
+                <xs:element name="amount" type="xs:string"/>
+                <xs:element name="paymentConditions" type="xs:string"/>
+                <xs:element name="paymentTermsList">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="term" type="termType" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateInvoiceResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="invoice" type="invoiceType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <!-- Types -->
 
     <xs:simpleType name="authType">
@@ -397,5 +428,33 @@
             <xs:maxLength value="2000"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <!-- Invoice-->
+	<xs:complexType name="invoiceType">
+		<xs:sequence>
+			<xs:element name="number" type="xs:string"/>
+			<xs:element name="budgetItemId" type="xs:string"/>
+			<xs:element name="contractorId" type="xs:string"/>
+			<xs:element name="paymentDate" type="xs:date" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="amount" type="xs:string"/>
+			<xs:element name="paymentConditions" type="xs:string"/>
+            <xs:element name="paymentTermsList">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="termsCollection" type="termType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+    <!-- TermsCollection-->
+    <xs:complexType name="termType">
+        <xs:sequence>
+            <xs:element name="term" type="xs:string"/>
+            <xs:element name="deadLine" type="xs:date" maxOccurs="1" minOccurs="1"/>
+            <xs:element name="expired" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
 
 </xs:schema>

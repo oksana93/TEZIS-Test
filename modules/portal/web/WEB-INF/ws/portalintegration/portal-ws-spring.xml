@@ -49,6 +49,9 @@
                 <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}CreateTaskRequest">
                     createTaskEndpoint
                 </prop>
+                <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}CreateInvoiceRequest">
+                    createInvoiceEndpoint
+                </prop>
                 <prop key="{http://www.haulmont.com/schema/thesis/portalIntegration}GetDocKindRequest">
                     getDocKindEndpoint
                 </prop>
@@ -79,6 +82,7 @@
     </bean>
     <bean id="createLetterEndpoint" class="com.company.tezistest.appintegration.CreateLetterEndpoint"/>
     <bean id="createTaskEndpoint" class="com.company.tezistest.appintegration.CreateTaskEndpoint"/>
+    <bean id="createInvoiceEndpoint" class="com.company.tezistest.appintegration.CreateInvoiceEndpoint"/>
     <bean id="getDocKindEndpoint" class="com.company.tezistest.appintegration.GetDocKindEndpoint"/>
 
     <bean id="portalLoginEndpoint" class="com.haulmont.thesis.portal.portalintegration.endpoint.PortalLoginEndpoint">
