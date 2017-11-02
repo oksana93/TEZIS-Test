@@ -43,8 +43,8 @@ public class CreateInvoiceEndpoint extends AbstractPortalEndpoint {
         Element termCollectionElement = invoiceElement.addElement("paymentTermsList");
         if (createdInvoice.getPaymentTermsList() != null) {
             for (TermsCollection tc : createdInvoice.getPaymentTermsList()) {
-               Element term = termCollectionElement.addElement("termsCollection");
-               term.addElement("term").setText(tc.getTerm() == null ? "" : tc.getTerm());
+               Element term = termCollectionElement.addElement("term");
+               term.addElement("termValue").setText(tc.getTerm() == null ? "" : tc.getTerm());
                term.addElement("deadLine").setText(tc.getDeadline() == null ? "" : tc.getDeadline().toString());
                term.addElement("expired").setText(tc.getExpired() == null ? "" : tc.getExpired().toString());
             }

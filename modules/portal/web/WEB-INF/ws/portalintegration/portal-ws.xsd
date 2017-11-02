@@ -441,7 +441,7 @@
             <xs:element name="paymentTermsList">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="termsCollection" type="termType" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="term" type="termType" minOccurs="0" maxOccurs="unbounded"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -451,7 +451,7 @@
     <!-- TermsCollection-->
     <xs:complexType name="termType">
         <xs:sequence>
-            <xs:element name="term" type="xs:string"/>
+            <xs:element name="termValue" type="xs:string"/>
             <xs:element name="deadLine" type="xs:date" minOccurs="0"/>
             <xs:element name="expired" type="xs:boolean"/>
         </xs:sequence>
