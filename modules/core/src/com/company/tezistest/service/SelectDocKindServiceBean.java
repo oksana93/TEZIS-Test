@@ -27,7 +27,8 @@ public class SelectDocKindServiceBean implements SelectDocKindService {
         try {
             EntityManager em = persistence.getEntityManager();
             Query query = em.createQuery("Select  d from df$DocKind d where d.id=?1")
-                    .setParameter(1, UUID.fromString(docKindConfig.getDocKindUUID()));
+                    .setParameter(1, UUID.fromString(docKindConfig.getDocKindUUID()))
+                    .setView(DocKind.class,"browse");
             docKind = (DocKind) query.getSingleResult();
             tx.commit();
         } finally {
