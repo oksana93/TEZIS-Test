@@ -42,6 +42,7 @@ public class InvoiceServiceBean implements InvoiceService {
         invoice.setPaymentConditions(paymentConditions);
         invoice.setPaymentDate(paymentDate);
 
+        Transaction tx = persistence.createTransaction();
         EntityManager entityManager = persistence.getEntityManager();
         invoice.setBudgetItem(entityManager.find(BudgetItem.class, budgetItemId));
         invoice.setContractor(entityManager.find(Company.class, contractorId));
@@ -61,7 +62,6 @@ public class InvoiceServiceBean implements InvoiceService {
             }
             invoice.setPaymentTermsList(termsCollectionSet);
         }
-        Transaction tx = persistence.createTransaction();
         try {
             entityManager.persist(invoice);
             tx.commit();
