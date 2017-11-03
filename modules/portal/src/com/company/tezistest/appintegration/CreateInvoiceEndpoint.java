@@ -30,7 +30,7 @@ public class CreateInvoiceEndpoint extends AbstractPortalEndpoint {
                 StringUtils.isEmpty(requestElement.element("paymentDate").getText()) ? null : (Date) datatype.parse(requestElement.element("paymentDate").getText()),
                 StringUtils.isEmpty(requestElement.element("amount").getText()) ? null : requestElement.element("amount").getText(),
                 StringUtils.isEmpty(requestElement.element("paymentConditions").getText()) ? null : requestElement.element("paymentConditions").getText(),
-                requestElement.elements("paymentTermsList") == null ? null : requestElement.elements("paymentTermsList"));
+                requestElement.elements("paymentTermsList").isEmpty() ? null : requestElement.elements("paymentTermsList"));
 
         Element response = responseDocument.addElement("CreateInvoiceResponse", SCHEMA_URI);
         Element invoiceElement = response.addElement("invoice");
@@ -41,7 +41,9 @@ public class CreateInvoiceEndpoint extends AbstractPortalEndpoint {
         invoiceElement.addElement("amount").setText(createdInvoice.getAmount() == null ? "" : createdInvoice.getAmount());
         invoiceElement.addElement("paymentConditions").setText(createdInvoice.getPaymentConditions() == null ? "" : createdInvoice.getPaymentConditions());
         Element termCollectionElement = invoiceElement.addElement("paymentTermsList");
-        if (createdInvoice.getPaymentTermsList() != null) {
+        if (createdInvoice.getPaymentTermsList() == null)
+            termCollectionElement.setText("");
+        else {
             for (TermsCollection tc : createdInvoice.getPaymentTermsList()) {
                Element term = termCollectionElement.addElement("term");
                term.addElement("termValue").setText(tc.getTerm() == null ? "" : tc.getTerm());

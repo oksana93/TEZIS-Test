@@ -60,10 +60,10 @@ public class InvoiceServiceBean implements InvoiceService {
                     tc.setInvoice(invoice);
                     tc.setExpired(StringUtils.isEmpty(docElement.element("expired").getText()) ? null : Boolean.valueOf(docElement.element("expired").getText()));
                     termsCollectionSet.add(tc);
+                    //entityManager.persist(tc);
                 }
                 invoice.setPaymentTermsList(termsCollectionSet);
             }
-
             entityManager.persist(invoice);
             tx.commit();
         } finally {
