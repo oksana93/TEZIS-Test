@@ -52,7 +52,7 @@ public class Invoice extends TsCard {
     protected String paymentConditions;
 
     @Composition
-    @OneToMany(mappedBy = "invoice")
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
     protected Set<TermsCollection> paymentTermsList;
 
     public void setPaymentTermsList(Set<TermsCollection> paymentTermsList) {

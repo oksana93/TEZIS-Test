@@ -43,26 +43,27 @@ public class InvoiceServiceBean implements InvoiceService {
         invoice.setPaymentDate(paymentDate);
 
         Transaction tx = persistence.createTransaction();
-        EntityManager entityManager = persistence.getEntityManager();
-        invoice.setBudgetItem(entityManager.find(BudgetItem.class, budgetItemId));
-        invoice.setContractor(entityManager.find(Company.class, contractorId));
-
-        if (paymentTermsList != null) {
-            Set<TermsCollection> termsCollectionSet = new HashSet<>();
-            Element docElement;
-            Datatype datatype = Datatypes.get(Date.class);
-            for (Object e : paymentTermsList) {
-                TermsCollection tc = metadata.create(TermsCollection.class);
-                docElement = ((Element) e).element("term");
-                tc.setTerm(StringUtils.isEmpty(docElement.element("termValue").getText()) ? null : docElement.element("termValue").getText());
-                tc.setDeadline(StringUtils.isEmpty(docElement.element("deadLine").getText()) ? null : (Date) datatype.parse(docElement.element("deadLine").getText()));
-                tc.setInvoice(invoice);
-                tc.setExpired(StringUtils.isEmpty(docElement.element("expired").getText()) ? null : Boolean.valueOf(docElement.element("expired").getText()));
-                termsCollectionSet.add(tc);
-            }
-            invoice.setPaymentTermsList(termsCollectionSet);
-        }
         try {
+            EntityManager entityManager = persistence.getEntityManager();
+            invoice.setBudgetItem(entityManager.find(BudgetItem.class, budgetItemId));
+            invoice.setContractor(entityManager.find(Company.class, contractorId));
+
+            if (paymentTermsList != null) {
+                Set<TermsCollection> termsCollectionSet = new HashSet<>();
+                Element docElement;
+                Datatype datatype = Datatypes.get(Date.class);
+                for (Object e : paymentTermsList) {
+                    TermsCollection tc = metadata.create(TermsCollection.class);
+                    docElement = ((Element) e).element("term");
+                    tc.setTerm(StringUtils.isEmpty(docElement.element("termValue").getText()) ? null : docElement.element("termValue").getText());
+                    tc.setDeadline(StringUtils.isEmpty(docElement.element("deadLine").getText()) ? null : (Date) datatype.parse(docElement.element("deadLine").getText()));
+                    tc.setInvoice(invoice);
+                    tc.setExpired(StringUtils.isEmpty(docElement.element("expired").getText()) ? null : Boolean.valueOf(docElement.element("expired").getText()));
+                    termsCollectionSet.add(tc);
+                    //entityManager.persist(tc);
+                }
+                invoice.setPaymentTermsList(termsCollectionSet);
+            }
             entityManager.persist(invoice);
             tx.commit();
         } finally {
