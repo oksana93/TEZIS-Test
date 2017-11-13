@@ -4,5 +4,6 @@
         <class>com.company.tezistest.entity.BudgetItem</class>
         <class>com.company.tezistest.entity.Invoice</class>
         <class>com.company.tezistest.entity.TermsCollection</class>
+        <class>com.company.tezistest.entity.ExtSimpleDoc</class>
     </persistence-unit>
 </persistence>
