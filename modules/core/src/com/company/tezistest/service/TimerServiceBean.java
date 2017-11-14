@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.UUID;
 
 @Service(TimerService.NAME)
@@ -21,10 +22,9 @@ public class TimerServiceBean implements TimerService {
     @Inject
     protected Persistence persistence;
 
+    private Calendar calendarAdd;
     private String selectTimerStr = "select t from wf$Timer t where t.card.id= ?1";
     private String updateTimerStr = "update wf$Timer t set t.dueDate= ?1 where t.card.id = ?2";
-    private String dateForUpdate = "00:05:00";
-    private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
     @Override
     public void updateTimerByCardId(UUID cardId) throws ParseException {
@@ -36,12 +36,16 @@ public class TimerServiceBean implements TimerService {
             Query q = entityManager.createQuery(selectTimerStr).setParameter(1, cardId);
             TimerEntity timer = (TimerEntity) q.getFirstResult();
 
-            Date updateTimerDate = sdf.parse(dateForUpdate);
             if (timer != null) {
-                timer.getDueDate()
-                        .setTime(
-                                timer.getDueDate().getTime() + updateTimerDate.getTime()
-                        );
+                Date timerDate = timer.getDueDate();
+                int year = timerDate.getYear() + 1900;
+                int month = timerDate.getMonth();
+                int day = timerDate.getDate();
+                int hours = timerDate.getHours();
+                int minutes = timerDate.getMinutes();
+                Calendar calendar = new GregorianCalendar(year, month, day, hours, minutes);
+                calendar.add(Calendar.MINUTE, 5);
+                timer.setDueDate(calendar.getTime());
                 q = entityManager.createQuery(updateTimerStr)
                         .setParameter(1, timer.getDueDate())
                         .setParameter(2, cardId);
