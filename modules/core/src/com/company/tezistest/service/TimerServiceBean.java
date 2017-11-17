@@ -1,7 +1,5 @@
 package com.company.tezistest.service;
 
-import com.haulmont.chile.core.datatypes.Datatype;
-import com.haulmont.chile.core.datatypes.Datatypes;
 import com.haulmont.cuba.core.EntityManager;
 import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.Query;
@@ -22,9 +20,20 @@ public class TimerServiceBean implements TimerService {
     @Inject
     protected Persistence persistence;
 
-    private Calendar calendarAdd;
-    private String selectTimerStr = "select t from wf$Timer t where t.card.id= ?1";
-    private String updateTimerStr = "update wf$Timer t set t.dueDate= ?1 where t.card.id = ?2";
+    protected String selectTimerStr = "select t from wf$Timer t where t.card.id= ?1";
+    protected String updateTimerStr = "update wf$Timer t set t.dueDate= ?1 where t.card.id = ?2";
+    protected final int DAYS = 0;
+    protected final int HOURS = 0;
+    protected final int MINUTES = 5;
+
+    protected Date updateDueDates(Date oldDueDate) {
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(oldDueDate);
+        calendar.add(Calendar.MINUTE, MINUTES);
+        calendar.add(Calendar.HOUR, HOURS);
+        calendar.add(Calendar.DAY_OF_MONTH, DAYS);
+        return calendar.getTime();
+    }
 
     @Override
     public void updateTimerByCardId(UUID cardId) throws ParseException {
@@ -32,22 +41,12 @@ public class TimerServiceBean implements TimerService {
         try {
             EntityManager entityManager = persistence.getEntityManager();
 
-            Datatype datatype = Datatypes.get(Date.class);
             Query q = entityManager.createQuery(selectTimerStr).setParameter(1, cardId);
             TimerEntity timer = (TimerEntity) q.getFirstResult();
-
             if (timer != null) {
-                Date timerDate = timer.getDueDate();
-                int year = timerDate.getYear() + 1900;
-                int month = timerDate.getMonth();
-                int day = timerDate.getDate();
-                int hours = timerDate.getHours();
-                int minutes = timerDate.getMinutes();
-                Calendar calendar = new GregorianCalendar(year, month, day, hours, minutes);
-                calendar.add(Calendar.MINUTE, 5);
-                timer.setDueDate(calendar.getTime());
+                Date newDueDates = updateDueDates(timer.getDueDate());
                 q = entityManager.createQuery(updateTimerStr)
-                        .setParameter(1, timer.getDueDate())
+                        .setParameter(1, newDueDates)
                         .setParameter(2, cardId);
                 q.executeUpdate();
                 tx.commit();
@@ -56,4 +55,21 @@ public class TimerServiceBean implements TimerService {
             tx.end();
         }
     }
+
+//    @Override
+//    public void updateTimerByAssignment(Assignment assignment) {
+//        Transaction tx = persistence.createTransaction();
+//        try {
+//            EntityManager entityManager = persistence.getEntityManager();
+//            Date oldDueDates = assignment.getDueDate();
+//            Date newDueDates = updateDueDates(oldDueDates);
+//            Query q = entityManager.createQuery(updateTimerStr)
+//                    .setParameter(1, newDueDates)
+//                    .setParameter(2, assignment.getCard());
+//            q.executeUpdate();
+//            tx.commit();
+//        } finally {
+//            tx.end();
+//        }
+//    }
 }

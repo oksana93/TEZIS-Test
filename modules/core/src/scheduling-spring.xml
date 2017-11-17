@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+    <bean id="updateTimerWrapper" class="com.company.tezistest.core.app.UpdateTimerWrapper">
+        <property name="procCode" value="${tezistest.procCode.endorsement}"/>
+        <property name="processDueDate" value="${tezistest.processDueDate.endorsement}"/>
+        <property name="timeUnitForProcessDueDate" value="${tezistest.timeUnitForProcessDueDate.endorsement}"/>
+        <property name="moduleName" value="${tezistest.moduleName.endorsement}"/>
+    </bean>
+
+    <task:scheduled-tasks scheduler="scheduler">
+        <task:scheduled ref="updateTimerWrapper" method="cancelProcByCard" cron="${tezistest.scheduler.endorsement}"/>
+    </task:scheduled-tasks>
+</beans>

@@ -19,6 +19,7 @@
                 <property name="interfaceMappings">
                     <map>
                         <entry key="TEZIS-Test_ExtDeployer" value="com.company.tezistest.core.app.ExtDeployerMBean"/>
+                        <entry key="tezistest_UpdateTimer" value="com.company.tezistest.core.app.UpdateTimer"/>
                     </map>
                 </property>
             </bean>
