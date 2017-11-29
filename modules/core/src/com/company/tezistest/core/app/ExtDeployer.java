@@ -1,56 +1,42 @@
 package com.company.tezistest.core.app;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.commons.codec.digest.DigestUtils;
-
-import com.haulmont.thesis.core.app.AbstractDeployer;
-import com.haulmont.cuba.core.global.ConfigProvider;
-import com.haulmont.cuba.core.sys.AppContext;
-import com.haulmont.cuba.core.app.ServerConfig;
-import com.haulmont.cuba.core.EntityManager;
-import com.haulmont.cuba.core.Transaction;
-import com.haulmont.cuba.core.entity.Config;
-import com.haulmont.cuba.security.global.LoginException;
-import com.haulmont.cuba.security.app.EntityLogAPI;
-import com.haulmont.chile.core.model.MetaClass;
-import com.haulmont.cuba.core.entity.Entity;
-import com.haulmont.cuba.security.app.Authenticated;
-
-import java.io.File;
-import org.apache.commons.io.IOUtils;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
-import org.dom4j.Document;
-import org.dom4j.Element;
-import com.haulmont.bali.util.Dom4j;
-import com.haulmont.workflow.core.entity.Proc;
-import com.haulmont.cuba.core.TypedQuery;
-import com.haulmont.reports.entity.Report;
-import com.haulmont.reports.entity.ReportScreen;
 import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import com.haulmont.bali.util.Dom4j;
+import com.haulmont.cuba.core.EntityManager;
+import com.haulmont.cuba.core.Transaction;
+import com.haulmont.cuba.core.TypedQuery;
+import com.haulmont.cuba.core.app.ServerConfig;
+import com.haulmont.cuba.core.entity.Config;
+import com.haulmont.cuba.core.global.ConfigProvider;
+import com.haulmont.cuba.core.sys.AppContext;
+import com.haulmont.cuba.security.app.Authenticated;
+import com.haulmont.cuba.security.app.EntityLogAPI;
+import com.haulmont.cuba.security.global.LoginException;
+import com.haulmont.reports.entity.Report;
+import com.haulmont.reports.entity.ReportScreen;
+import com.haulmont.thesis.core.app.AbstractDeployer;
+import com.haulmont.workflow.core.entity.Proc;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import java.util.ArrayList;
-
-
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.dom4j.Document;
+import org.dom4j.Element;
 
 import javax.annotation.ManagedBean;
 import javax.inject.Inject;
-
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 @ManagedBean("TEZIS-Test_ExtDeployer")

@@ -1,0 +1,50 @@
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.tezistest.web.doccorrespondent.DocCorrespondentDataFrame"
+        messagesPack="com.company.tezistest.web.doccorrespondent"
+>
+    <dsContext>
+        <!--<datasource-->
+                <!--id="cardDs"-->
+                <!--class="com.company.tezistest.entity.ExtSimpleDoc"-->
+                <!--view="extSimpleDoc-edit">-->
+            <!--<collectionDatasource id="correspondentDs" property="correspondentList"/>-->
+        <!--</datasource>-->
+        <collectionDatasource
+                id="correspondentListDs"
+                class="com.haulmont.thesis.core.entity.Correspondent"
+                view="correspondent-lookup">
+            <query>
+                <![CDATA[select c from df$Correspondent c]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout>
+        <vbox id="mainPane" spacing="true" height="100%">
+            <grid id="correspondentsDataGrid" spacing="true">
+                <columns>
+                    <column flex="1"/>
+                    <column flex="1"/>
+                </columns>
+                <rows>
+                    <row id="correspondentsRow">
+                        <groupBox id="correspondentsGroupBox"
+                                  colspan="2"
+                                  caption="msg://correspondents"
+                                  width="470px"
+                        >
+                        </groupBox>
+                    </row>
+                    <!--<row id="correspondentFileRow">-->
+                        <!--<lookupPickerField id="correspondentDs"-->
+                                           <!--datasource="correspondentDs"-->
+                                           <!--property="name"-->
+                                           <!--optionsDatasource="correspondentListDs"-->
+                                           <!--width="350px">-->
+                        <!--</lookupPickerField>-->
+                    <!--</row>-->
+                </rows>
+            </grid>
+        </vbox>
+    </layout>
+
+</window>

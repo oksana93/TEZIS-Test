@@ -4,4 +4,5 @@
           extends="edit">
         <property name="correspondentList" view="_minimal"/>
     </view>
+    <view class="com.haulmont.thesis.core.entity.Correspondent" extends="_minimal" name="correspondent-lookup"/>
 </views>

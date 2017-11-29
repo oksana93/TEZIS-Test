@@ -1,4 +1,6 @@
 <screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
     <include file="/screens.xml"/>
     <screen id="df$SimpleDoc.edit" template="com/company/tezistest/web/extsimpledoc/ext-simple-doc-edit.xml"/>
+
+    <screen id="docCorrespondentDataFrame" template="/com/company/tezistest/web/doccorrespondent/doc-correspondent-data-frame.xml"/>
 </screen-config>
