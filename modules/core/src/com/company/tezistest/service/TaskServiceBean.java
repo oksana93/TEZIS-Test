@@ -19,8 +19,8 @@ import java.util.UUID;
 /**
  * Created by moshi on 27.10.2017.
  */
-@Service(TaskService.NAME)
-public class TaskServiceBean implements TaskService {
+//@Service(TaskService.NAME)
+public class TaskServiceBean /*implements TaskService*/ {
     @Inject
     protected TaskComponent taskComponent;
     @Inject
@@ -40,7 +40,7 @@ public class TaskServiceBean implements TaskService {
         return entities.isEmpty() ? null : entities.iterator().next();
     }
 
-    @Override
+    /*@Override*/
     public Task createTask(Date finishDatePlan, UUID executorId, UUID initiatorId, String taskName) {
         User userExecutor;
         User userInitiator;
