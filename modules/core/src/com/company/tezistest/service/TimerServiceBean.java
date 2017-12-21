@@ -5,7 +5,6 @@ import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.Query;
 import com.haulmont.cuba.core.Transaction;
 import com.haulmont.workflow.core.entity.TimerEntity;
-import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.text.ParseException;
@@ -14,8 +13,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 
-@Service(TimerService.NAME)
-public class TimerServiceBean implements TimerService {
+//@Service(TimerService.NAME)
+public class TimerServiceBean /*implements TimerService*/ {
 
     @Inject
     protected Persistence persistence;
@@ -35,7 +34,7 @@ public class TimerServiceBean implements TimerService {
         return calendar.getTime();
     }
 
-    @Override
+//    @Override
     public void updateTimerByCardId(UUID cardId) throws ParseException {
         Transaction tx = persistence.createTransaction();
         try {

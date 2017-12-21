@@ -8,16 +8,18 @@ allprojects {
     ext.classComment = '''/**
  * @author ${USER}
  */'''
-    
+
 }
 
 buildscript {
     ext.thesisVersion = '4.1.6'
     ext.cubaVersion = '5.8.1'
+    ext.kotlinVersion = '1.1.61'
     ext.autoConfigurePortal = true
     ext.autoConfigureMobile = true
     repositories {
         mavenLocal()
+        mavenCentral()
         maven {
             url 'http://deprecated-repo.haulmont.com:8587/nexus/content/groups/work/'
             credentials {
@@ -33,10 +35,10 @@ buildscript {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
         classpath "com.haulmont.thesis.gradle:thesis-plugin:$thesisVersion"
         classpath 'org.hidetake:gradle-ssh-plugin:2.9.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 
 }
-
 
 def globalModule = project(':tezistest-global')
 def coreModule = project(':tezistest-core')
@@ -50,14 +52,16 @@ def servletApi = 'org.apache.tomcat:servlet-api:6.0.20'
 
 def thesisWebToolkitGAV = [group: 'com.haulmont.thesis.toolkit', name: 'thesis-web-toolkit', version: thesisVersion]
 
-
-
-
+apply(plugin: 'kotlin')
 apply(plugin: 'idea')
 apply(plugin: 'cuba')
 apply(plugin: 'thesis')
 apply(plugin: 'org.hidetake.ssh')
 
+dependencies {
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion")
+    compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+}
 remotes {
     webServer {
         host = '172.29.134.55'
@@ -67,6 +71,7 @@ remotes {
 }
 
 configure([globalModule, coreModule, guiModule, webModule, portalModule, mobileModule]) {
+    apply(plugin: 'kotlin')
     apply(plugin: 'java')
     apply(plugin: 'maven')
     apply(plugin: 'idea')
@@ -88,7 +93,10 @@ configure([globalModule, coreModule, guiModule, webModule, portalModule, mobileM
 
 configure(globalModule) {
     dependencies {
-                compile("com.haulmont.thesis.app:thesis-global:$thesisVersion")
+        compile("com.haulmont.thesis.app:thesis-global:$thesisVersion")
+        compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion")
+        compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+        compile fileTree(dir: 'libs', include: ['*.jar'])
 
     }
 
@@ -111,19 +119,21 @@ configure(coreModule) {
         jdbc(postgres)
         testRuntime(postgres)
         webcontent("com.haulmont.thesis.app:thesis-core:$thesisVersion:web@zip")
-                compile("com.haulmont.thesis.app:thesis-core:$thesisVersion")
+        compile("com.haulmont.thesis.app:thesis-core:$thesisVersion")
         dbscripts("com.haulmont.thesis.app:thesis-core:$thesisVersion:db@zip")
+        compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion")
+        compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
 
     }
 
     task deploy(dependsOn: assemble, type: CubaDeployment) {
         appName = 'app-core'
-        appJars('thesis-core', 'thesis-global', 'reports-global', 'reports-core', 'charts-global', 'workflow-core', 'workflow-global', 'fts-core', 'fts-global', 'cuba-core', 'cuba-global', 
-                'thesis-cryptopro-global','tezistest-global', 'tezistest-core')
+        appJars('thesis-core', 'thesis-global', 'reports-global', 'reports-core', 'charts-global', 'workflow-core', 'workflow-global', 'fts-core', 'fts-global', 'cuba-core', 'cuba-global',
+                'thesis-cryptopro-global', 'tezistest-global', 'tezistest-core')
     }
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
-        dbms =gradle.ext.dbms
+        dbms = gradle.ext.dbms
         host = gradle.ext.host
         dbName = gradle.ext.dbName
         dbUser = gradle.ext.dbUser
@@ -131,7 +141,7 @@ configure(coreModule) {
     }
 
     task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
-        dbms =gradle.ext.dbms
+        dbms = gradle.ext.dbms
         host = gradle.ext.host
         dbName = gradle.ext.dbName
         dbUser = gradle.ext.dbUser
@@ -142,7 +152,7 @@ configure(coreModule) {
 configure(guiModule) {
     dependencies {
         compile(globalModule)
-                compile("com.haulmont.thesis.app:thesis-gui:$thesisVersion")
+        compile("com.haulmont.thesis.app:thesis-gui:$thesisVersion")
 
     }
 
@@ -156,7 +166,7 @@ configure(guiModule) {
 configure(webModule) {
     configurations {
         webcontent
-        
+
         staticContent
         themes
     }
@@ -200,7 +210,9 @@ configure(webModule) {
     }
     def staticContentDir = "$tomcatDir/webapps/app/static"
     task deployThesisDocZip {
-        def thesisDocZip = zipTree(configurations.staticContent.resolvedConfiguration.getResolvedArtifacts().find { it.name.startsWith('thesis-doc') }.file)
+        def thesisDocZip = zipTree(configurations.staticContent.resolvedConfiguration.getResolvedArtifacts().find {
+            it.name.startsWith('thesis-doc')
+        }.file)
         inputs.file thesisDocZip
         outputs.dir new File(staticContentDir)
         doLast {
@@ -219,10 +231,10 @@ configure(webModule) {
         }
     }
 
-    task deploy(dependsOn: [assemble, cleanConf, deployThesisDocZip], type: ThesisWebAppDeployment) {
+    task deploy(dependsOn: [assemble, cleanConf, deployThesisDocZip, compileKotlin], type: ThesisWebAppDeployment) {
         appName = 'app'
-        appJars('thesis-gui', 'thesis-web', 'thesis-global', 'reports-gui', 'reports-web', 'reports-global', 'charts-gui', 'charts-web', 'charts-global', 'workflow-gui', 'workflow-web', 'workflow-global', 'fts-web', 'fts-global', 'fts-gui', 'cuba-global', 'cuba-client', 'cuba-gui', 'cuba-web', 
-        'thesis-bpmn-diagram','thesis-cryptopro-global', 'thesis-cryptopro-web','tezistest-global', 'tezistest-gui', 'tezistest-web')
+        appJars('thesis-gui', 'thesis-web', 'thesis-global', 'reports-gui', 'reports-web', 'reports-global', 'charts-gui', 'charts-web', 'charts-global', 'workflow-gui', 'workflow-web', 'workflow-global', 'fts-web', 'fts-global', 'fts-gui', 'cuba-global', 'cuba-client', 'cuba-gui', 'cuba-web',
+                'thesis-bpmn-diagram', 'thesis-cryptopro-global', 'thesis-cryptopro-web', 'tezistest-global', 'tezistest-gui', 'tezistest-web')
     }
 }
 
@@ -230,7 +242,7 @@ task undeploy(type: Delete, dependsOn: ':tezistest-web:cleanConf') {
     delete("$tomcatDir/shared")
     delete("$tomcatDir/webapps/app-core")
     delete("$tomcatDir/webapps/app")
-        delete("$tomcatDir/webapps/app-portal")
+    delete("$tomcatDir/webapps/app-portal")
 }
 
 task restart(dependsOn: ['stop', ':tezistest-core:deploy', ':tezistest-web:deploy', ':tezistest-portal:deploy', ':tezistest-mobile:deploy'], description: 'Redeploys applications and restarts local Tomcat') << {
@@ -243,5 +255,17 @@ task restart(dependsOn: ['stop', ':tezistest-core:deploy', ':tezistest-web:deplo
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
+    // gradleVersion = '1.12'
+    gradleVersion = '2.10'
+}
+repositories {
+    mavenCentral()
+}
+
+compileKotlin {
+    kotlinOptions {
+        suppressWarnings = true
+        jvmTarget = "1.8"
+        freeCompilerArgs = ["-Xjsr305=strict"]
+    }
 }

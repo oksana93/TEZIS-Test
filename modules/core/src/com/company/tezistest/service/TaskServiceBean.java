@@ -9,7 +9,6 @@ import com.haulmont.cuba.security.entity.User;
 import com.haulmont.thesis.core.app.NumerationService;
 import com.haulmont.thesis.core.entity.Task;
 import com.haulmont.thesis.core.entity.TsUser;
-import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.sql.Date;
@@ -19,8 +18,8 @@ import java.util.UUID;
 /**
  * Created by moshi on 27.10.2017.
  */
-@Service(TaskService.NAME)
-public class TaskServiceBean implements TaskService {
+//@Service(TaskService.NAME)
+public class TaskServiceBean /*implements TaskService*/ {
     @Inject
     protected TaskComponent taskComponent;
     @Inject
@@ -40,7 +39,7 @@ public class TaskServiceBean implements TaskService {
         return entities.isEmpty() ? null : entities.iterator().next();
     }
 
-    @Override
+    /*@Override*/
     public Task createTask(Date finishDatePlan, UUID executorId, UUID initiatorId, String taskName) {
         User userExecutor;
         User userInitiator;

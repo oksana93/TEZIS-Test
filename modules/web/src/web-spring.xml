@@ -24,6 +24,7 @@
         <property name="remoteServices">
             <map>
                 <entry key="tezistest_TimerService" value="com.company.tezistest.service.TimerService"/>
+                <entry key="tezistest_DocumentReportService" value="com.company.tezistest.service.DocumentReportService"/>
             </map>
         </property>
     </bean>

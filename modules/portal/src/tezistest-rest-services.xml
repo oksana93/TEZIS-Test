@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns="http://schemas.haulmont.com/cuba/restapi-service-v2.xsd">
+    <service name="tezistest_DocumentReportService">
+        <method name="printReportByExtSimpleDoc"/>
+    </service>
+</services>

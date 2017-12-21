@@ -11,7 +11,9 @@
     <bean id="TEZIS-Test_MBeanExporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
         <property name="beans">
             <map>
-                <entry key="${cuba.webContextName}:service=ExtDeployer" value-ref="TEZIS-Test_ExtDeployer"/>
+                <entry key="${cuba.webContextName}.tezistest:type=ExtDeployer" value-ref="TEZIS-Test_ExtDeployer"/>
+                <entry key="${cuba.webContextName}:com.company.tezistest.service=SelectionOfDocKind" value-ref="TEZIS-Test_SelectionOfDocKind"/>
+                <entry key="${cuba.webContextName}.tezistest:type=DocumentReportJmx" value-ref="tezistest_DocumentReportJmxMBean"/>
             </map>
         </property>
         <property name="assembler">
@@ -19,23 +21,9 @@
                 <property name="interfaceMappings">
                     <map>
                         <entry key="TEZIS-Test_ExtDeployer" value="com.company.tezistest.core.app.ExtDeployerMBean"/>
-                        <entry key="tezistest_UpdateTimer" value="com.company.tezistest.core.app.UpdateTimer"/>
-                    </map>
-                </property>
-            </bean>
-        </property>
-    </bean>
-    <bean id="TEZIS-Test_SelectionOfDocKindMBean" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
-        <property name="beans">
-            <map>
-                <entry key="${cuba.webContextName}:com.company.tezistest.service=SelectionOfDocKind" value-ref="TEZIS-Test_SelectionOfDocKind"/>
-            </map>
-        </property>
-        <property name="assembler">
-            <bean class="org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler">
-                <property name="interfaceMappings">
-                    <map>
                         <entry key="TEZIS-Test_SelectionOfDocKind" value="com.company.tezistest.core.app.SelectionOfDocKindMBean"/>
+                        <entry key="tezistest_DocumentReportJmxMBean" value="com.company.tezistest.core.app.DocumentReportJmxMBean"/>
+                        <entry key="tezistest_UpdateTimer" value="com.company.tezistest.core.app.UpdateTimer"/>
                     </map>
                 </property>
             </bean>

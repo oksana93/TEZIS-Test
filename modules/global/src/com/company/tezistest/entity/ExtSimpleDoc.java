@@ -17,7 +17,7 @@ import java.util.List;
 public class ExtSimpleDoc extends SimpleDoc {
     private static final long serialVersionUID = -5855307198256202048L;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name = "TEZISTEST_EXT_SIMPLE_DOC_EXT_CORRESPONDENT",
             joinColumns = @JoinColumn(name = "EXT_SIMPLE_DOC_ID"),
             inverseJoinColumns = @JoinColumn(name = "EXT_CORRESPONDENT_ID"))
