@@ -1,0 +1,68 @@
+ноя 10, 2017 11:50:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 11:50:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 11:50:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'dispatcher'
+ноя 10, 2017 11:50:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 11:50:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 11:51:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'remoting'
+ноя 10, 2017 11:51:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 11:51:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 11:51:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 11:51:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 11:51:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+ноя 10, 2017 11:51:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'old-reminder-update-ws'
+ноя 10, 2017 11:51:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'spring-ws'
+ноя 10, 2017 11:51:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 11:51:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 4:17:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 4:17:11 PM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 4:17:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'dispatcher'
+ноя 10, 2017 4:17:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 4:17:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 4:19:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'remoting'
+ноя 10, 2017 4:19:11 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 4:19:11 PM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 4:19:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 4:19:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 4:19:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+ноя 10, 2017 4:19:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'old-reminder-update-ws'
+ноя 10, 2017 4:19:27 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'spring-ws'
+ноя 10, 2017 4:19:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 4:19:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 4:19:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'dispatcher'
+ноя 10, 2017 4:19:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+ноя 10, 2017 4:19:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+ноя 10, 2017 4:19:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'dispatcher'

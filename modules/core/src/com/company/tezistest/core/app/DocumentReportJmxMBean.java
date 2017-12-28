@@ -10,7 +10,7 @@ import org.springframework.jmx.export.annotation.ManagedResource;
 
 @ManagedResource(description = "Report printing")
 public interface DocumentReportJmxMBean {
-    static final String NAME = "tezistest_DocumentReportJmxMBean";
+    String NAME = "tezistest_DocumentReportJmxMBean";
 
     @ManagedOperation(description = "Report printing")
     @ManagedOperationParameters({

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<forms xmlns="http://schemas.haulmont.com/workflow/4.1/forms.xsd">
+  <activity name="Soglasovanie">
+    <transition name="Soglasovat" style="wf-success">
+      <invoke>
+        <script><![CDATA[return true;]]></script>
+      </invoke>
+    </transition>
+    <transition name="Otmenit" style="wf-failure">
+      <screen id="resolution.form" before="true">
+        <param name="attachmentsVisible" value="false"/>
+        <param name="commentRequired" value="false"/>
+        <param name="requiredAttachmentTypes" value=""/>
+      </screen>
+    </transition>
+    <transition name="Otmenit_po_taimeru" style="wf-failure">
+      <screen id="resolution.form" before="true">
+        <param name="attachmentsVisible" value="false"/>
+        <param name="commentRequired" value="false"/>
+        <param name="requiredAttachmentTypes" value=""/>
+      </screen>
+    </transition>
+  </activity>
+  <cancel>
+    <screen id="resolution.form" before="true">
+      <param name="attachmentsVisible" value="false"/>
+      <param name="commentRequired" value="true"/>
+    </screen>
+  </cancel>
+</forms>

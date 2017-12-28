@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process xmlns="http://jbpm.org/4.2/jpdl" name="proc_20171113_102317731" key="proc_20171113_102317731">  
+  <start name="Nachalo"> 
+    <transition name="Ok" to="Started"/> 
+  </start>  
+  <custom name="Started" class="com.haulmont.thesis.core.activity.task.StartActivity"> 
+    <transition name="out" to="Soglasovanie"/> 
+  </custom>  
+  <custom class="com.haulmont.workflow.core.activity.UniversalAssigner" name="Soglasovanie"> 
+    <property name="role"> 
+      <string value="Согласующий"/> 
+    </property>  
+    <transition name="Soglasovat" to="Konec1"/>  
+    <transition name="Otmenit" to="Otmeneno_"/>  
+    <transition name="Otmenit_po_taimeru" to="Otmeneno_po_taimeru"/>  
+    <property name="timersFactory"> 
+      <object class="com.haulmont.workflow.core.timer.GenericAssignmentTimersFactory"> 
+        <property name="dueDates"> 
+          <string value="3  minute"/> 
+        </property>  
+        <property name="transitions"> 
+          <string value="Otmenit_po_taimeru"/> 
+        </property>  
+        <property name="scripts"> 
+          <string value=""/> 
+        </property> 
+      </object> 
+    </property>  
+    <property name="successTransition"> 
+      <string value="Soglasovat"/> 
+    </property> 
+  </custom>  
+  <end name="Konec1"/>  
+  <custom class="com.haulmont.workflow.core.activity.CardActivity" name="Otmeneno_po_taimeru"> 
+    <transition name="out" to="Konec1"/> 
+  </custom>  
+  <custom class="com.haulmont.workflow.core.activity.CardActivity" name="Otmeneno_"> 
+    <transition name="out" to="Konec1"/> 
+  </custom>  
+  <on event="end"> 
+    <event-listener class="com.haulmont.workflow.core.activity.EndProcessListener"/> 
+  </on>  
+  <on event="start"> 
+    <event-listener class="com.haulmont.workflow.core.activity.StartProcessListener"/> 
+  </on>  
+  <on event="end"> 
+    <event-listener class="com.haulmont.workflow.core.activity.RemoveTimersEventListener"/> 
+  </on> 
+</process>

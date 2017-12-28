@@ -1,0 +1,510 @@
+ноя 08, 2017 6:31:22 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Anaconda3;C:\Program Files\Anaconda3\Scripts;C:\Program Files\Anaconda3\Library\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;D:\winutils-master\hadoop-2.8.1\bin;C:\Users\moshi\AppData\Local\Microsoft\WindowsApps;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;D:\winutils-master\hadoop-2.8.1\bin;;.
+ноя 08, 2017 6:31:22 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:31:22 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:31:23 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1364 ms
+ноя 08, 2017 6:31:23 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+ноя 08, 2017 6:31:23 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.62
+ноя 08, 2017 6:31:23 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core
+ноя 08, 2017 6:31:23 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:31:25 PM com.haulmont.cuba.core.sys.logging.CubaLog4jConfigurator doConfigure
+INFO: Configuring log4j from file:/D:\Altarix\tezis-sandbox\deploy\tomcat/conf/log4j.xml
+ноя 08, 2017 6:31:41 PM com.sun.xml.internal.ws.model.JavaMethodImpl freeze
+WARNING: Mismatch between Java model and WSDL model found, For wsdl operation {http://russianpost.org/operationhistory}getOperationHistory,There is no matching wsdl fault with detail QName {http://russianpost.org/operationhistory/data}LanguageFaultReason
+ноя 08, 2017 6:32:14 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core has finished in 51,534 ms
+ноя 08, 2017 6:32:14 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile
+ноя 08, 2017 6:32:14 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:32:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile has finished in 6,562 ms
+ноя 08, 2017 6:32:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal
+ноя 08, 2017 6:32:21 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:32:26 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal has finished in 5,530 ms
+ноя 08, 2017 6:32:26 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT
+ноя 08, 2017 6:32:26 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT has finished in 62 ms
+ноя 08, 2017 6:32:26 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:32:26 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:32:26 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 63816 ms
+ноя 08, 2017 6:32:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app
+ноя 08, 2017 6:32:36 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:32:42 PM org.apache.catalina.core.StandardContext startInternal
+SEVERE: One or more listeners failed to start. Full details will be found in the appropriate container log file
+ноя 08, 2017 6:32:42 PM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Context [/app] startup failed due to previous errors
+ноя 08, 2017 6:32:42 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app has finished in 5,795 ms
+��� 08, 2017 6:35:58 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Could not contact localhost:8005. Tomcat may not be running.
+��� 08, 2017 6:35:58 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Catalina.stop: 
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:370)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:457)
+
+��� 08, 2017 6:36:32 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Could not contact localhost:8005. Tomcat may not be running.
+��� 08, 2017 6:36:32 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Catalina.stop: 
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:370)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:457)
+
+ноя 08, 2017 6:36:53 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Anaconda3;C:\Program Files\Anaconda3\Scripts;C:\Program Files\Anaconda3\Library\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;D:\winutils-master\hadoop-2.8.1\bin;C:\Users\moshi\AppData\Local\Microsoft\WindowsApps;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;D:\winutils-master\hadoop-2.8.1\bin;;.
+ноя 08, 2017 6:36:54 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:36:54 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:36:54 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1182 ms
+ноя 08, 2017 6:36:54 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+ноя 08, 2017 6:36:54 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.62
+ноя 08, 2017 6:36:54 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app
+ноя 08, 2017 6:36:54 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:36:55 PM com.haulmont.cuba.core.sys.logging.CubaLog4jConfigurator doConfigure
+INFO: Configuring log4j from file:/D:\Altarix\tezis-sandbox\deploy\tomcat/conf/log4j.xml
+ноя 08, 2017 6:37:05 PM org.apache.catalina.core.StandardContext startInternal
+SEVERE: One or more listeners failed to start. Full details will be found in the appropriate container log file
+ноя 08, 2017 6:37:05 PM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Context [/app] startup failed due to previous errors
+ноя 08, 2017 6:37:05 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app] appears to have started a thread named [perf4j-async-stats-appender-sink-CoalescingStatistics] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:37:05 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app] appears to have started a thread named [perf4j-async-stats-appender-sink-UICoalescingStatistics] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:37:05 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app has finished in 11,012 ms
+ноя 08, 2017 6:37:05 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core
+ноя 08, 2017 6:37:05 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:37:18 PM com.sun.xml.internal.ws.model.JavaMethodImpl freeze
+WARNING: Mismatch between Java model and WSDL model found, For wsdl operation {http://russianpost.org/operationhistory}getOperationHistory,There is no matching wsdl fault with detail QName {http://russianpost.org/operationhistory/data}LanguageFaultReason
+ноя 08, 2017 6:37:51 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core has finished in 45,924 ms
+ноя 08, 2017 6:37:51 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile
+ноя 08, 2017 6:37:51 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:37:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile has finished in 5,157 ms
+ноя 08, 2017 6:37:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal
+ноя 08, 2017 6:37:56 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:38:02 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal has finished in 5,618 ms
+ноя 08, 2017 6:38:02 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT
+ноя 08, 2017 6:38:02 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT has finished in 101 ms
+ноя 08, 2017 6:38:02 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:38:02 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:38:02 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 67983 ms
+ноя 08, 2017 6:38:12 PM org.apache.catalina.startup.HostConfig undeploy
+INFO: Undeploying context [/app]
+ноя 08, 2017 6:38:12 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app
+ноя 08, 2017 6:38:12 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:38:20 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app has finished in 8,668 ms
+ноя 08, 2017 6:38:51 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+WARNING: 
+=================================================================
+Vaadin is running in DEBUG MODE.
+Add productionMode=true to web.xml to disable debug features.
+To show debug window, add ?debug to your application URL.
+=================================================================
+ноя 08, 2017 6:38:51 PM com.vaadin.server.VaadinServletService checkAtmosphereSupport
+WARNING: 
+=================================================================
+Vaadin depends on Atmosphere 2.2.4.vaadin5 but version 2.2.9 was found.
+This might cause compatibility problems if push is used.
+=================================================================
+��� 08, 2017 6:42:38 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Could not contact localhost:8005. Tomcat may not be running.
+��� 08, 2017 6:42:38 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Catalina.stop: 
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:370)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:457)
+
+ноя 08, 2017 6:43:29 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Anaconda3;C:\Program Files\Anaconda3\Scripts;C:\Program Files\Anaconda3\Library\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;D:\winutils-master\hadoop-2.8.1\bin;C:\Users\moshi\AppData\Local\Microsoft\WindowsApps;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;D:\winutils-master\hadoop-2.8.1\bin;;.
+ноя 08, 2017 6:43:29 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:43:29 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:43:29 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1117 ms
+ноя 08, 2017 6:43:29 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+ноя 08, 2017 6:43:29 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.62
+ноя 08, 2017 6:43:29 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app
+ноя 08, 2017 6:43:29 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:43:31 PM com.haulmont.cuba.core.sys.logging.CubaLog4jConfigurator doConfigure
+INFO: Configuring log4j from file:/D:\Altarix\tezis-sandbox\deploy\tomcat/conf/log4j.xml
+ноя 08, 2017 6:43:46 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app has finished in 16,869 ms
+ноя 08, 2017 6:43:46 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core
+ноя 08, 2017 6:43:46 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:43:57 PM com.sun.xml.internal.ws.model.JavaMethodImpl freeze
+WARNING: Mismatch between Java model and WSDL model found, For wsdl operation {http://russianpost.org/operationhistory}getOperationHistory,There is no matching wsdl fault with detail QName {http://russianpost.org/operationhistory/data}LanguageFaultReason
+ноя 08, 2017 6:44:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core has finished in 36,212 ms
+ноя 08, 2017 6:44:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile
+ноя 08, 2017 6:44:22 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:44:28 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile has finished in 5,233 ms
+ноя 08, 2017 6:44:28 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal
+ноя 08, 2017 6:44:28 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:44:33 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal has finished in 5,007 ms
+ноя 08, 2017 6:44:33 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT
+ноя 08, 2017 6:44:33 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT has finished in 109 ms
+ноя 08, 2017 6:44:33 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:44:33 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:44:33 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 63554 ms
+ноя 08, 2017 6:45:52 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+WARNING: 
+=================================================================
+Vaadin is running in DEBUG MODE.
+Add productionMode=true to web.xml to disable debug features.
+To show debug window, add ?debug to your application URL.
+=================================================================
+ноя 08, 2017 6:45:53 PM com.vaadin.server.VaadinServletService checkAtmosphereSupport
+WARNING: 
+=================================================================
+Vaadin depends on Atmosphere 2.2.4.vaadin5 but version 2.2.9 was found.
+This might cause compatibility problems if push is used.
+=================================================================
+��� 08, 2017 6:48:25 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Could not contact localhost:8005. Tomcat may not be running.
+��� 08, 2017 6:48:25 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Catalina.stop: 
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:370)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:457)
+
+ноя 08, 2017 6:50:52 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Anaconda3;C:\Program Files\Anaconda3\Scripts;C:\Program Files\Anaconda3\Library\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;D:\winutils-master\hadoop-2.8.1\bin;C:\Users\moshi\AppData\Local\Microsoft\WindowsApps;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;D:\winutils-master\hadoop-2.8.1\bin;;.
+ноя 08, 2017 6:50:52 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:50:52 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:50:52 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1139 ms
+ноя 08, 2017 6:50:52 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+ноя 08, 2017 6:50:52 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.62
+ноя 08, 2017 6:50:52 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app
+ноя 08, 2017 6:50:52 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:50:53 PM com.haulmont.cuba.core.sys.logging.CubaLog4jConfigurator doConfigure
+INFO: Configuring log4j from file:/D:\Altarix\tezis-sandbox\deploy\tomcat/conf/log4j.xml
+ноя 08, 2017 6:51:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app has finished in 14,951 ms
+ноя 08, 2017 6:51:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core
+ноя 08, 2017 6:51:07 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:51:18 PM com.sun.xml.internal.ws.model.JavaMethodImpl freeze
+WARNING: Mismatch between Java model and WSDL model found, For wsdl operation {http://russianpost.org/operationhistory}getOperationHistory,There is no matching wsdl fault with detail QName {http://russianpost.org/operationhistory/data}LanguageFaultReason
+ноя 08, 2017 6:51:43 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core has finished in 35,597 ms
+ноя 08, 2017 6:51:43 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile
+ноя 08, 2017 6:51:43 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:51:48 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile has finished in 5,409 ms
+ноя 08, 2017 6:51:48 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal
+ноя 08, 2017 6:51:48 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:51:55 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal has finished in 6,528 ms
+ноя 08, 2017 6:51:55 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT
+ноя 08, 2017 6:51:55 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT has finished in 57 ms
+ноя 08, 2017 6:51:55 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:51:55 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:51:55 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 62671 ms
+ноя 08, 2017 6:51:55 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+WARNING: 
+=================================================================
+Vaadin is running in DEBUG MODE.
+Add productionMode=true to web.xml to disable debug features.
+To show debug window, add ?debug to your application URL.
+=================================================================
+ноя 08, 2017 6:51:55 PM com.vaadin.server.VaadinServletService checkAtmosphereSupport
+WARNING: 
+=================================================================
+Vaadin depends on Atmosphere 2.2.4.vaadin5 but version 2.2.9 was found.
+This might cause compatibility problems if push is used.
+=================================================================
+ноя 08, 2017 6:55:36 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+ноя 08, 2017 6:55:36 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:55:36 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:55:36 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app] appears to have started a thread named [perf4j-async-stats-appender-sink-CoalescingStatistics] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app] appears to have started a thread named [perf4j-async-stats-appender-sink-UICoalescingStatistics] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/app-core] appears to have started a thread named [ScheduledRunnerThread] but has failed to stop it. This is very likely to create a memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.thesis.core.notification.NotificationParamBuilder.] (value [com.haulmont.thesis.core.notification.NotificationParamBuilder$1@5f53bc]) and a value of type [java.util.HashMap] (value [{}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.thesis.core.notification.NotificationParamBuilder.] (value [com.haulmont.thesis.core.notification.NotificationParamBuilder$1@5f53bc]) and a value of type [java.util.HashMap] (value [{}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.thesis.core.notification.NotificationParamBuilder.] (value [com.haulmont.thesis.core.notification.NotificationParamBuilder$1@5f53bc]) and a value of type [java.util.HashMap] (value [{}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:37 PM org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks
+SEVERE: The web application [/app-core] created a ThreadLocal with key of type [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder] (value [com.haulmont.cuba.core.sys.ThreadLocalSecurityContextHolder@e2af66]) and a value of type [com.haulmont.cuba.core.sys.SecurityContext] (value [SecurityContext{sessionId=214bee8a-afe1-cc28-3561-aab8ec4f413a}]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+ноя 08, 2017 6:55:38 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:55:38 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:55:38 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:55:38 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+��� 08, 2017 6:57:07 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Could not contact localhost:8005. Tomcat may not be running.
+��� 08, 2017 6:57:07 PM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Catalina.stop: 
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:370)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:457)
+
+ноя 08, 2017 6:57:51 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Anaconda3;C:\Program Files\Anaconda3\Scripts;C:\Program Files\Anaconda3\Library\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;D:\winutils-master\hadoop-2.8.1\bin;C:\Users\moshi\AppData\Local\Microsoft\WindowsApps;C:\wildfly-10.1.0.Final\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2017.1.2\plugins\maven\lib\maven3\bin;C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Users\moshi\gradle-4.2-0\gradle\bin;D:\winutils-master\hadoop-2.8.1\bin;;.
+ноя 08, 2017 6:57:52 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:57:52 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:57:52 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1308 ms
+ноя 08, 2017 6:57:52 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+ноя 08, 2017 6:57:52 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.62
+ноя 08, 2017 6:57:52 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app
+ноя 08, 2017 6:57:52 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:57:54 PM com.haulmont.cuba.core.sys.logging.CubaLog4jConfigurator doConfigure
+INFO: Configuring log4j from file:/D:\Altarix\tezis-sandbox\deploy\tomcat/conf/log4j.xml
+ноя 08, 2017 6:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app has finished in 19,012 ms
+ноя 08, 2017 6:58:11 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core
+ноя 08, 2017 6:58:11 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:58:22 PM com.sun.xml.internal.ws.model.JavaMethodImpl freeze
+WARNING: Mismatch between Java model and WSDL model found, For wsdl operation {http://russianpost.org/operationhistory}getOperationHistory,There is no matching wsdl fault with detail QName {http://russianpost.org/operationhistory/data}LanguageFaultReason
+ноя 08, 2017 6:58:46 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-core has finished in 34,934 ms
+ноя 08, 2017 6:58:46 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile
+ноя 08, 2017 6:58:46 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:58:51 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-mobile has finished in 5,484 ms
+ноя 08, 2017 6:58:51 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal
+ноя 08, 2017 6:58:51 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Context/Manager} Setting property 'debug' to '0' did not find a matching property.
+ноя 08, 2017 6:58:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\app-portal has finished in 5,061 ms
+ноя 08, 2017 6:58:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT
+ноя 08, 2017 6:58:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\Altarix\tezis-sandbox\deploy\tomcat\webapps\ROOT has finished in 47 ms
+ноя 08, 2017 6:58:56 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+ноя 08, 2017 6:58:56 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+ноя 08, 2017 6:58:56 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 64645 ms
+ноя 08, 2017 6:59:14 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+WARNING: 
+=================================================================
+Vaadin is running in DEBUG MODE.
+Add productionMode=true to web.xml to disable debug features.
+To show debug window, add ?debug to your application URL.
+=================================================================
+ноя 08, 2017 6:59:14 PM com.vaadin.server.VaadinServletService checkAtmosphereSupport
+WARNING: 
+=================================================================
+Vaadin depends on Atmosphere 2.2.4.vaadin5 but version 2.2.9 was found.
+This might cause compatibility problems if push is used.
+=================================================================
